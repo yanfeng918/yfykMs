@@ -16,7 +16,6 @@
 <%
 String base = request.getContextPath();
 String captchaId = UUID.randomUUID().toString();
-	System.out.print(captchaId);
 ApplicationContext applicationContext = SpringUtils.getApplicationContext();
 Setting setting = SettingUtils.get();
 
@@ -101,11 +100,7 @@ if (applicationContext != null) {
 			$username.focus();
 		}
 		
-		// 更换验证码
-		$captchaImage.click( function() {
-			$captchaImage.attr("src", "<%=base%>/common/captcha?captchaId=<%=captchaId%>&timestamp=" + (new Date()).valueOf());
-		});
-		
+
 		// 表单验证、记住用户名
 		$loginForm.submit( function() {
 			if ($username.val() == "") {
@@ -133,9 +128,9 @@ if (applicationContext != null) {
 			$enPassword.val(enPassword);
 		});
 		
-		<%if (message != null) {%>
-			$.message("error", "<%=SpringUtils.getMessage(message, setting.getAccountLockCount())%>");
-		<%}%>
+		<%--<%if (message != null) {%>--%>
+			<%--$.message("error", "getAccountLockCount");--%>
+		<%--<%}%>--%>
 	});
 </script>
 <%} else {%>
@@ -154,9 +149,7 @@ if (applicationContext != null) {
 		<div class="login">
 			<form id="loginForm" action="login.jsp" method="post">
 				<input type="hidden" id="enPassword" name="enPassword" />
-				<%if (ArrayUtils.contains(setting.getCaptchaTypes(), CaptchaType.adminLogin)) {%>
-					<input type="hidden" name="captchaId" value="<%=captchaId%>" />
-				<%}%>
+
 				<table>
 					<tr>
 						<td width="190" rowspan="2" align="center" valign="bottom">
@@ -177,19 +170,7 @@ if (applicationContext != null) {
 							<input type="password" id="password" class="text" maxlength="20" autocomplete="off" />
 						</td>
 					</tr>
-					<%if (ArrayUtils.contains(setting.getCaptchaTypes(), CaptchaType.adminLogin)) {%>
-						<tr>
-							<td>
-								&nbsp;
-							</td>
-							<th>
-								验证码:
-							</th>
-							<td>
-								<input type="text" id="captcha" name="captcha" class="text captcha" maxlength="4" autocomplete="off" /><img id="captchaImage" class="captchaImage" src="<%=base%>/common/captcha?captchaId=<%=captchaId%>" title="" />
-							</td>
-						</tr>
-					<%}%>
+
 					<tr>
 						<td>
 							&nbsp;

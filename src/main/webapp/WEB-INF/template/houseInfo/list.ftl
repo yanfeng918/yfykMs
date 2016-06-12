@@ -70,7 +70,7 @@ function check() {
 </head>
 <body>
 	<div class="path">
-		<a href="${base}/admin/index/">${message("admin.path.index")}</a> &raquo; 房源列表 <span>(${message("admin.page.total", pager.totalCount)})</span>
+		<a href="${base}/admin/index/"></a> &raquo; 房源列表 <span>(${pager.totalCount})</span>
 	</div>
 	<form id="listForm" action="list" method="get">
 	
@@ -297,7 +297,7 @@ function check() {
 		</table>
 		
 		[#if (pager.list?size > 0)]
-			[#include "../include/pager.ftl"]
+			[#include "/include/pager.ftl"]
 		[#else]
 			<div class="noRecord">
 				没有找到任何记录!

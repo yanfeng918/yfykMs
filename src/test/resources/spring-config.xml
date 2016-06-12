@@ -98,18 +98,6 @@
 		</property>
 	</bean> -->
 
-	<!-- 国际化配置 -->
-	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-		<property name="cacheSeconds" value="${message.cache_seconds}" />
-		<property name="useCodeAsDefaultMessage" value="true" />
-		<property name="basenames">
-			<list>
-				<value>${message.common_path}</value>
-				<value>${message.shop_path}</value>
-				<value>${message.admin_path}</value>
-			</list>
-		</property>
-	</bean>
 
 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver">
 		<property name="defaultLocale" value="${locale}" />
@@ -149,7 +137,7 @@
 				<entry key="systemVersion" value="${system.version}" />
 				<entry key="systemDescription" value="${system.description}" />
 				<entry key="systemShowPowered" value="${system.show_powered}" />
-				<entry key="base" value="#{servletContext.contextPath}" />
+				<!--<entry key="base" value="#{servletContext.contextPath}" />-->
 				<entry key="locale" value="${locale}" />
 				<entry key="message"><bean class="com.yfyk.utils.MessageMethod"></bean></entry>
 				<entry key="setting" value="#{T(com.yfyk.utils.SettingUtils).get()}" />

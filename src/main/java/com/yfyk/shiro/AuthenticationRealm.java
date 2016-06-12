@@ -7,7 +7,6 @@ package com.yfyk.shiro;
 
 
 import com.yfyk.bean.Setting;
-import com.yfyk.common.service.ICaptchaService;
 import com.yfyk.entity.Admin;
 import com.yfyk.service.AdminService;
 import com.yfyk.utils.SettingUtils;
@@ -35,8 +34,7 @@ import java.util.List;
  */
 public class AuthenticationRealm extends AuthorizingRealm {
 
-	@Autowired
-	private ICaptchaService captchaService;
+
 	@Autowired
 	private AdminService adminService;
 	
@@ -58,9 +56,9 @@ public class AuthenticationRealm extends AuthorizingRealm {
         String captcha = authenticationToken.getCaptcha();
         String ip = authenticationToken.getHost();
 
-        if (!captchaService.isValid(Setting.CaptchaType.adminLogin, captchaId, captcha)) {
-            throw new UnsupportedTokenException();
-        }
+//        if (!captchaService.isValid(Setting.CaptchaType.adminLogin, captchaId, captcha)) {
+//            throw new UnsupportedTokenException();
+//        }
         if (username != null && password != null) {
             Admin admin = adminService.findByUsername(username);
             if (admin == null) {

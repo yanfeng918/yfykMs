@@ -2,7 +2,6 @@ package com.yfyk.common.controller;
 
 
 import com.yfyk.bean.Setting;
-import com.yfyk.common.service.ICaptchaService;
 import com.yfyk.utils.SettingUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
@@ -25,8 +24,8 @@ import java.awt.image.BufferedImage;
 public class CommonController {
 
 
-	@Resource(name = "captchaServiceImpl")
-	private ICaptchaService captchaService;
+
+
 
 	/**
 	 * 网站关闭
@@ -61,10 +60,10 @@ public class CommonController {
 
 		ServletOutputStream servletOutputStream = null;
 		try {
-			servletOutputStream = response.getOutputStream();
-			BufferedImage bufferedImage = captchaService.buildImage(captchaId);
-			ImageIO.write(bufferedImage, "jpg", servletOutputStream);
-			servletOutputStream.flush();
+//			servletOutputStream = response.getOutputStream();
+//			BufferedImage bufferedImage = captchaService.buildImage(captchaId);
+//			ImageIO.write(bufferedImage, "jpg", servletOutputStream);
+//			servletOutputStream.flush();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

@@ -36,6 +36,15 @@ public class Pager<T> {
 	private OrderType orderType = OrderType.desc;// 排序方式
 	private List<T> list;// 数据List
 
+
+
+
+	public void webParamConvert() {
+		if (pageSize != null && pageNumber != null) {
+			pageOffset = pageSize * (pageNumber - 1);
+		}
+	}
+
 	public Integer getPageNumber() {
 		return pageNumber;
 	}
@@ -74,6 +83,7 @@ public class Pager<T> {
 
 	public void setTotalCount(Integer totalCount) {
 		this.totalCount = totalCount;
+		setPageCount(getPageCount());
 	}
 
 	public Integer getPageCount() {
