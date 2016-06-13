@@ -58,10 +58,20 @@
         <!--<table tableName="t_admin" domainObjectName="Admin">-->
         <!--</table>-->
 
-        <table tableName="t_agent" domainObjectName="Agent">
+        <!--<table tableName="t_agent" domainObjectName="Agent">-->
+        <!--</table>-->
+
+        <!--<table tableName="t_income" domainObjectName="Income">-->
+        <!--</table>-->
+
+        <!--<table tableName="t_expenses" domainObjectName="Expenses">-->
+        <!--</table>-->
+
+        <!--<table tableName="t_recharge" domainObjectName="Recharge">-->
+        <!--</table>-->
+
+        <table tableName="t_withdraw" domainObjectName="WithDraw">
         </table>
-
-
 
     </context>
 </generatorConfiguration>

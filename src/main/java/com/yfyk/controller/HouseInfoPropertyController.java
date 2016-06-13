@@ -1,6 +1,8 @@
 package com.yfyk.controller;
 
 
+import com.yfyk.bean.Pager;
+import com.yfyk.dto.request.GetHouseInfoPropertyListRequest;
 import com.yfyk.entity.Community;
 import com.yfyk.entity.HouseInfoProperty;
 import com.yfyk.service.AgentService;
@@ -13,6 +15,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -45,12 +48,20 @@ public class HouseInfoPropertyController {
     @Autowired
     private CommunityService communityService;
 
-
     public static StringBuffer resultBuffer;
 
     public static StringBuffer buffer;
 
     public static boolean isDone;
+
+
+
+    @RequestMapping(value="/list")
+    public String home(Model model, GetHouseInfoPropertyListRequest request) {
+        Pager<HouseInfoProperty> list = houseInfoPropertyService.list(request);
+        model.addAttribute("pager", list);
+        return "/houseInfoProperty/list";
+    }
 
 
     @RequestMapping(value = "/uploadPage")
@@ -114,7 +125,7 @@ public class HouseInfoPropertyController {
                 if (sheet == null) {
                     continue;
                 }
-                for (int index = 1; index < sheet.getLastRowNum(); index++) {
+                for (int index = 1; index <= sheet.getLastRowNum(); index++) {
                     HSSFRow row = sheet.getRow(index);
 					try {
 						if (row != null) {

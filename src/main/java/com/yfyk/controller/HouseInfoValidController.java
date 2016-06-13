@@ -39,9 +39,6 @@ public class HouseInfoValidController {
 	private HouseInfoValidService houseInfoValidService;
 
 
-
-
-
 	@RequestMapping(value="/list")
 	public String home(Model model, GetHouseInfoValidListRequest request) {
 		Pager<HouseInfoValid> list = houseInfoValidService.list(request);

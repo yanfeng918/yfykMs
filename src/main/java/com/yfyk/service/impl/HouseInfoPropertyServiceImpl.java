@@ -1,6 +1,8 @@
 package com.yfyk.service.impl;
 
+import com.yfyk.bean.Pager;
 import com.yfyk.dao.extend.HouseInfoPropertyExtendMapper;
+import com.yfyk.dto.request.GetHouseInfoPropertyListRequest;
 import com.yfyk.entity.HouseInfoProperty;
 import com.yfyk.entity.HouseInfoPropertyExample;
 import com.yfyk.service.HouseInfoPropertyService;
@@ -35,5 +37,18 @@ public class HouseInfoPropertyServiceImpl implements HouseInfoPropertyService {
     public void add(HouseInfoProperty houseInfoProperty) {
         if (houseInfoProperty!=null)
             houseInfoPropertyExtendMapper.insertSelective(houseInfoProperty);
+    }
+
+    @Override
+    public Pager<HouseInfoProperty> list(GetHouseInfoPropertyListRequest request) {
+        request.webParamConvert();
+        List<HouseInfoProperty> houseInfoList = houseInfoPropertyExtendMapper.getHouseInfoList(request);
+        int houseInfoListCount = houseInfoPropertyExtendMapper.getHouseInfoListCount(request);
+        Pager<HouseInfoProperty> pager = new Pager<HouseInfoProperty>();
+        pager.setPageNumber(request.getPageNumber());
+        pager.setPageSize(request.getPageSize());
+        pager.setList(houseInfoList);
+        pager.setTotalCount(houseInfoListCount);
+        return pager;
     }
 }

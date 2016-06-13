@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yfyk.dao.extend.HouseInfoNewExtendMapper">
+    <sql id="whereOfGetHouseInfoList">
+        <where>
+            <if test="community!= null and community!=''">
+                and h.community like CONCAT('%',#{community},'%')
+            </if>
+            <if test="mobile!= null and mobile!=''">
+                and h.mobile =#{mobile}
+            </if>
+        </where>
+    </sql>
 
+    <select id="getHouseInfoList" parameterType="com.yfyk.dto.request.GetHouseInfoNewListRequest"
+            resultType="com.yfyk.entity.HouseInfoProperty">
+        select
+        h.id,h.createDate,h.infoPrice,h.area_id,h.roomNumber, h.community,h.address,h.description,h.areaSize,h.salePrice,
+        h.ban,h.houseShape,h.name,h.mobile,h.status,h.available, a.fullName area_fullName
+        from t_house_info_new h LEFT JOIN t_area
+        a on h.area_id = a.id
+        <include refid="whereOfGetHouseInfoList" />
+        <if test="sort!=null">
+            order by h.status DESC,h.available DESC ,h.${sort}
+            <if test="order!=null">
+                ${order}
+            </if>
+        </if>
+        <if test="sort==null">
+            order by h.status DESC,h.available DESC , h.createDate DESC
+        </if>
+        <if test="pageOffset >= 0 and pageSize>0">
+            limit #{pageOffset} , #{pageSize}
+        </if>
+    </select>
+
+    <select id="getHouseInfoListCount" parameterType="com.yfyk.dto.request.GetHouseInfoNewListRequest" resultType="int">
+        select  count(*)  from t_house_info_new h
+        <include refid="whereOfGetHouseInfoList" />
+    </select>
 </mapper>
