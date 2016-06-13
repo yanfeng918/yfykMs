@@ -272,6 +272,22 @@
         </configuration>
       </plugin>
 
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <!-- http://121.40.162.48/ -->
+          <!-- http://139.196.13.240:8080/ -->
+          <!--<url>http://121.40.162.48/manager/text</url>-->
+          <url>http://139.196.6.9:8080/manager/text</url>
+          <server>tomcat</server>
+          <path>/yfykMs</path>
+          <username>admin</username>
+          <password>6565177</password>
+        </configuration>
+      </plugin>
+
       <!--<plugin>-->
         <!--<groupId>org.mortbay.jetty</groupId>-->
         <!--<artifactId>jetty-maven-plugin</artifactId>-->

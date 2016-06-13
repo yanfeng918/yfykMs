@@ -167,13 +167,13 @@ $().ready(function() {
 						<input type="checkbox" name="ids" value="${recharge.id}" />
 					</td>
 					<td>
-						${recharge.member.name}
+						${recharge.mobile}
 					</td>
 					<td>
-						${recharge.member.username}
+						${recharge.username}
 					</td>
                     <td>
-						${recharge.member.balance}
+						${recharge.balance}
                     </td>
 					<td>
 						[#if (recharge.createDate)??]
@@ -187,7 +187,7 @@ $().ready(function() {
 					
 
 					<td>
-						${recharge.rechargeNumber}
+						${recharge.zhifubaoAccount}
 					</td>
 					<td>
 						${recharge.checkContent}

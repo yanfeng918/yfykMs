@@ -70,7 +70,10 @@
         <!--<table tableName="t_recharge" domainObjectName="Recharge">-->
         <!--</table>-->
 
-        <table tableName="t_withdraw" domainObjectName="WithDraw">
+        <!--<table tableName="t_withdraw" domainObjectName="WithDraw">-->
+        <!--</table> -->
+
+        <table tableName="t_member" domainObjectName="Member">
         </table>
 
     </context>
