@@ -32,7 +32,7 @@
         });
         var win_check;
         function getResult(){
-        $("#resultId").html("");
+            $("#resultId").html("");
             $("#logArea").val("");
             win_check = window.setInterval(check, 1000);
             return true;
@@ -65,16 +65,16 @@ function check() {
 <body>
         <form id="inputForm" action="upload.do" method="post" enctype="multipart/form-data">
             <div>
-                <select name="cityId" id="cityId">
-                    <option value="">----请选择城市----</option>
-                [#list cityList as city]
-                ${city.name}
-                    <option value="${city.id}" [#if cityId?? &&cityId==city.id]selected="selected"[/#if]>
-                    ${city.name}
-                    </option>
-                [/#list]
-                </select>
-                <br/>
+                [#--<select name="cityId" id="cityId">--]
+                    [#--<option value="">----请选择城市----</option>--]
+                [#--[#list cityList as city]--]
+                [#--${city.name}--]
+                    [#--<option value="${city.id}" [#if cityId?? &&cityId==city.id]selected="selected"[/#if]>--]
+                    [#--${city.name}--]
+                    [#--</option>--]
+                [#--[/#list]--]
+                [#--</select>--]
+                [#--<br/>--]
                 <label>开始行</label><input type="text" name="startIndex" id="startIndex"/><br/>
                 <label>结束行</label><input type="text" name="endIndex" id="endIndex"/><br/>
             </div><br/>

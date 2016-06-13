@@ -1,6 +1,6 @@
-package com.yfyk.common.service.impl;
+package com.yfyk.service.impl;
 
-import com.yfyk.common.service.HouseInfoCrawlService;
+import com.yfyk.service.HouseInfoCrawlService;
 
 /**
  * Created by yanfeng on 2016/6/12.

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Controller - 地区
  */
 @Controller
-@RequestMapping("/auth/houseInfo")
+@RequestMapping("/houseInfoCrawl")
 public class HouseInfoCrawlController {
 
 	

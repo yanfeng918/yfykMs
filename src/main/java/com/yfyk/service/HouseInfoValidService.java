@@ -1,4 +1,4 @@
-package com.yfyk.common.service;
+package com.yfyk.service;
 
 import com.yfyk.bean.Pager;
 import com.yfyk.dto.request.GetHouseInfoValidListRequest;

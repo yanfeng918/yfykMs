@@ -1,7 +1,6 @@
 package com.yfyk.service;
 
 import com.yfyk.bean.Pager;
-import com.yfyk.common.service.HouseInfoValidService;
 import com.yfyk.dto.request.GetHouseInfoValidListRequest;
 import com.yfyk.entity.HouseInfoValid;
 import org.junit.Test;

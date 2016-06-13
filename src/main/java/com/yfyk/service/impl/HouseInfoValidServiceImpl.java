@@ -1,7 +1,7 @@
-package com.yfyk.common.service.impl;
+package com.yfyk.service.impl;
 
 import com.yfyk.bean.Pager;
-import com.yfyk.common.service.HouseInfoValidService;
+import com.yfyk.service.HouseInfoValidService;
 import com.yfyk.dao.extend.HouseInfoValidExtendMapper;
 import com.yfyk.dto.request.GetHouseInfoValidListRequest;
 import com.yfyk.entity.HouseInfoValid;
