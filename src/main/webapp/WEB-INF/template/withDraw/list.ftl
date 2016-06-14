@@ -128,17 +128,17 @@ function check() {
 				</div>
 				
 			</div>
-            <div style=" margin-left: 50%;">
-                <select name="cityId" id="cityId">
-                    <option value="">----请选择城市----</option>
-				[#list cityList as city]
-				${city.name}
-                    <option value="${city.id}" [#if cityId?? &&cityId==city.id]selected="selected"[/#if]>
-					${city.name}
-                    </option>
-				[/#list]
-                </select>
-            </div>
+            [#--<div style=" margin-left: 50%;">--]
+                [#--<select name="cityId" id="cityId">--]
+                    [#--<option value="">----请选择城市----</option>--]
+				[#--[#list cityList as city]--]
+				[#--${city.name}--]
+                    [#--<option value="${city.id}" [#if cityId?? &&cityId==city.id]selected="selected"[/#if]>--]
+					[#--${city.name}--]
+                    [#--</option>--]
+				[#--[/#list]--]
+                [#--</select>--]
+            [#--</div>--]
 		</div>
         <div class="demos">
                 <span>起止时间▼<input name="beginDate" type="text" id="beginDate" size="10" maxlength="10"
@@ -158,13 +158,10 @@ function check() {
 				</th>
 
 				<th>
-					<a href="javascript:;" class="sort" name="name">会员姓名</a>
+					<a href="javascript:;" class="sort" name="name">会员</a>
 				</th>
-                <th>
-                    <a href="javascript:;" class="sort" name="name">城市</a>
-                </th>
 				<th>
-					<a href="javascript:;" class="sort" name="mobile">会员账户</a>
+					<a href="javascript:;" class="sort" name="mobile">会员余额</a>
 				</th>
 				<th>
 					<a href="javascript:;" class="sort" name="createDate">取现日期</a>
@@ -173,7 +170,7 @@ function check() {
 					<a href="javascript:;" class="sort" name="">取现金额</a>
 				</th>
                 <th>
-                    <a href="javascript:;" class="sort" name="">审核状态</a>
+                    <a href="javascript:;" class="sort" name="">审核结果</a>
                 </th>
 
 				<th>
@@ -192,13 +189,10 @@ function check() {
 						<input type="checkbox" name="ids" value="${withDraw.id}" />
 					</td>
 					<td>
-						${withDraw.member.name}
+						${withDraw.mobile}
 					</td>
-                    <td>
-						${withDraw.member.area.fullName}
-                    </td>
 					<td>
-						${withDraw.member.username}
+						${withDraw.balance}
 					</td>
 					<td>
 						[#if (withDraw.createDate)??]

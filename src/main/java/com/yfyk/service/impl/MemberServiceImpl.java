@@ -18,9 +18,9 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void addBalance(float amount,long memberId) {
+        Member member = memberExtendMapper.selectByPrimaryKey((int)memberId);
         MemberExample example = new MemberExample();
         example.or().andIdEqualTo((int)memberId);
-        Member member = new Member();
         member.setBalance(member.getBalance()+amount);
         memberExtendMapper.updateByExampleSelective(member, example);
     }

@@ -118,55 +118,38 @@ $().ready(function() {
 				<dl id="product" class="default" style="display: none;">
 					<dt>房源信息</dt>
 						<dd>
-							<a href="auth/houseInfo/list" target="iframe">房源管理</a>
+							<a href="houseInfoValid/list" target="iframe">有效房源</a>
 						</dd>
                         <dd>
-                            <a href="houseInfoCheckWait/edit" target="iframe">待审核房源</a>
+                            <a href="houseInfoCheckWait/edit" target="iframe">爬虫房源</a>
                         </dd>
 						<dd>
-							<a href="houseInfoCheckWait/editDiscon" target="iframe">电话不通房源</a>
+							<a href="houseInfoNew/list" target="iframe">最新房源</a>
 						</dd>
 						<dd>
-							<a href="stateCheck/edit" target="iframe">申诉房源</a>
+							<a href="houseInfoNew/uploadPage" target="iframe">最新房源导入</a>
 						</dd>
 						<dd>
-							<a href="houseInfoCheckWait/listCollection" target="iframe">征集房源审核</a>
+							<a href="houseInfoProperty/list" target="iframe">物业房源</a>
 						</dd>
                         <dd>
-                            <a href="houseInfoCheck/list" target="iframe">已审核房源</a>
+                            <a href="houseInfoProperty/uploadPage" target="iframe">物业房源导入</a>
                         </dd>
-                        <dd>
-                            <a href="auth/report/list" target="iframe">举报管理</a>
-                        </dd>
-                        <dd>
-                            <a href="reportCheckWait/edit" target="iframe">待审核举报</a>
-                        </dd>
-                        <dd>
-                            <a href="reportCheck/list" target="iframe">已审核举报</a>
-                        </dd>
-						<dd>
-							<a href="auth/houseInfo/uploadPage" target="iframe">导入房源</a>
-						</dd>
-						<dd>
-							<a href="auth/houseActive/list" target="iframe">激活房源</a>
-						</dd>
+                        <%--<dd>--%>
+                            <%--<a href="auth/report/list" target="iframe">举报管理</a>--%>
+                        <%--</dd>--%>
+                        <%--<dd>--%>
+                            <%--<a href="reportCheckWait/edit" target="iframe">待审核举报</a>--%>
+                        <%--</dd>--%>
+                        <%--<dd>--%>
+                            <%--<a href="reportCheck/list" target="iframe">已审核举报</a>--%>
+                        <%--</dd>--%>
 						<%--<dd>--%>
-							<%--<a href="product_category/list.jhtml" target="iframe">商品分类</a>--%>
+							<%--<a href="auth/houseInfo/uploadPage" target="iframe">导入房源</a>--%>
 						<%--</dd>--%>
 						<%--<dd>--%>
-							<%--<a href="http://localhost:8888/shopxx/admin/parameter_group/list.jhtml" target="iframe">商品参数</a>--%>
+							<%--<a href="auth/houseActive/list" target="iframe">激活房源</a>--%>
 						<%--</dd>--%>
-						<%--<dd>--%>
-							<%--<a href="http://localhost:8888/shopxx/admin/attribute/list.jhtml" target="iframe">商品属性</a>--%>
-						<%--</dd>--%>
-						<%--<dd>--%>
-							<%--<a href="http://localhost:8888/shopxx/admin/specification/list.jhtml" target="iframe">规格管理</a>--%>
-						<%--</dd>--%>
-						<%--<dd>--%>
-							<%--<a href="http://localhost:8888/shopxx/admin/brand/list.jhtml" target="iframe">品牌管理</a>--%>
-						<%--</dd>--%>
-						<%--<dd>--%>
-							<%--<a href="http://localhost:8888/shopxx/admin/product_notify/list.jhtml" target="iframe">到货通知</a>--%>
 						</dd>
 				</dl>
 				<dl id="finance" style="display: none;">
@@ -175,40 +158,40 @@ $().ready(function() {
 							<%--<a href="financeIndex/list" target="iframe">财务首页</a>--%>
 						<%--</dd>--%>
 						<dd>
-							<a href="auth/recharge/list" target="iframe">充值管理</a>
+							<a href="recharge/list" target="iframe">充值管理</a>
 						</dd>
-						<dd>
-							<a href="auth/rechargeCheckWait/edit" target="iframe">待审核的充值</a>
-						</dd>
-						<dd>
-							<a href="auth/rechargeCheck/list" target="iframe">已审核的充值</a>
-						</dd>
-						<dd>
-							<a href="auth/withDraw/list" target="iframe">取现管理</a>
-						</dd>
+						<%--<dd>--%>
+							<%--<a href="auth/rechargeCheckWait/edit" target="iframe">待审核的充值</a>--%>
+						<%--</dd>--%>
+						<%--<dd>--%>
+							<%--<a href="auth/rechargeCheck/list" target="iframe">已审核的充值</a>--%>
+						<%--</dd>--%>
+						<%--<dd>--%>
+							<%--<a href="auth/withDraw/list" target="iframe">取现管理</a>--%>
+						<%--</dd>--%>
 
-                        <dd>
-                            <a href="auth/withDrawCheckWait/edit" target="iframe">待审核的取现</a>
-                        </dd>
+                        <%--<dd>--%>
+                            <%--<a href="auth/withDrawCheckWait/edit" target="iframe">待审核的取现</a>--%>
+                        <%--</dd>--%>
 
-                        <dd>
-                            <a href="auth/withDrawCheck/list" target="iframe">已审核的取现</a>
-                        </dd>
-                        <dd>
-                            <a href="auth/incomeFrom/list" target="iframe">系统收入查询</a>
-                        </dd>
-                        <dd>
-                            <a href="auth/expensesFrom/list" target="iframe">系统支出查询</a>
-                        </dd>
-						<dd>
-							<a href="auth/extraAward/list" target="iframe">本月额外奖励</a>
-						</dd>
-						<dd>
-							<a href="auth/extraAward/provideList" target="iframe">上月奖励确认</a>
-						</dd>
-						<dd>
-							<a href="auth/extraAward/historyList" target="iframe">额外奖励历史</a>
-						</dd>
+                        <%--<dd>--%>
+                            <%--<a href="auth/withDrawCheck/list" target="iframe">已审核的取现</a>--%>
+                        <%--</dd>--%>
+                        <%--<dd>--%>
+                            <%--<a href="auth/incomeFrom/list" target="iframe">系统收入查询</a>--%>
+                        <%--</dd>--%>
+                        <%--<dd>--%>
+                            <%--<a href="auth/expensesFrom/list" target="iframe">系统支出查询</a>--%>
+                        <%--</dd>--%>
+						<%--<dd>--%>
+							<%--<a href="auth/extraAward/list" target="iframe">本月额外奖励</a>--%>
+						<%--</dd>--%>
+						<%--<dd>--%>
+							<%--<a href="auth/extraAward/provideList" target="iframe">上月奖励确认</a>--%>
+						<%--</dd>--%>
+						<%--<dd>--%>
+							<%--<a href="auth/extraAward/historyList" target="iframe">额外奖励历史</a>--%>
+						<%--</dd>--%>
                         <%--<dd>--%>
                             <%--<a href="auth/pettyCash/list" target="iframe">备用金管理</a>--%>
                         <%--</dd>--%>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>${message("admin.member.add")}</title>
+<title>添加系统提现</title>
 
 
 <link href="${base}/resources/admin/css/common.css" rel="stylesheet" type="text/css" />
@@ -17,81 +17,19 @@
 $().ready(function() {
 
 	var $inputForm = $("#inputForm");
-	var $areaId = $("#areaId");
-	
-	
-	
-	// 地区选择
-	$areaId.lSelect({
-		url: "${base}/admin/common/area"
-	});
-	
+
 	// 表单验证
 	$inputForm.validate({
 		rules: {
-			username: {
-				required: true,
-				pattern: /^[0-9a-z_A-Z\u4e00-\u9fa5]+$/,
-				minlength: ${setting.usernameMinLength},
-				maxlength: ${setting.usernameMaxLength},
-				remote: {
-					url: "check_username.jhtml",
-					cache: false
-				}
-			},
-			password: {
-				required: true,
-				pattern: /^[^\s&\"<>]+$/,
-				minlength: ${setting.passwordMinLength},
-				maxlength: ${setting.passwordMaxLength}
-			},
-			rePassword: {
-				required: true,
-				equalTo: "#password"
-			},
-			email: {
-				required: true,
-				email: true
-				[#if !setting.isDuplicateEmail]
-					,remote: {
-						url: "check_email.jhtml",
-						cache: false
-					}
-				[/#if]
-			},
-			point: {
-				required: true,
-				digits: true
-			},
-			balance: {
-				required: true,
-				min: 0,
-				decimal: {
-					integer: 12,
-					fraction: ${setting.priceScale}
-				}
+            amount: {
+				required: true
 			}
-			[#list memberAttributes as memberAttribute]
-				[#if memberAttribute.isRequired]
-					,memberAttribute_${memberAttribute.id}: {
-						required: true
-					}
-				[/#if]
-			[/#list]
+
 		},
 		messages: {
-			username: {
-				pattern: "${message("admin.validate.illegal")}",
-				remote: "${message("admin.member.disabledExist")}"
-			},
-			password: {
+            amount: {
 				pattern: "${message("admin.validate.illegal")}"
 			}
-			[#if !setting.isDuplicateEmail]
-				,email: {
-					remote: "${message("admin.validate.exist")}"
-				}
-			[/#if]
 		}
 	});
 
@@ -100,91 +38,37 @@ $().ready(function() {
 </head>
 <body>
 	<div class="path">
-		<a href="${base}/common/index/">${message("admin.path.index")}</a> &raquo; ${message("admin.member.add")}
+		<a href="${base}/common/index/">${message("admin.path.index")}</a> &raquo; 添加系统提现
 	</div>
 	<form id="inputForm" action="save" method="post">
-		<ul id="tab" class="tab">
-			<li>
-				<input type="button" value="${message("admin.member.base")}" />
-			</li>
-			[#if memberAttributes?has_content]
-				<li>
-					<input type="button" value="${message("admin.member.profile")}" />
-				</li>
-			[/#if]
-		</ul>
+		[#--<ul id="tab" class="tab">--]
+			[#--<li>--]
+				[#--<input type="button" value="${message("admin.member.base")}" />--]
+			[#--</li>--]
+			[#--[#if memberAttributes?has_content]--]
+				[#--<li>--]
+					[#--<input type="button" value="${message("admin.member.profile")}" />--]
+				[#--</li>--]
+			[#--[/#if]--]
+		[#--</ul>--]
 		<table class="input tabContent">
 			<tr>
 				<th>
-					<span class="requiredField">*</span>${message("Member.username")}:
+					<span class="requiredField">*</span>提现金额:
 				</th>
 				<td>
-					<input type="text" name="username" class="text" maxlength="20" />
+					<input type="text" name="amount" class="text" maxlength="20" />
 				</td>
 			</tr>
-			<tr>
-				<th>
-					<span class="requiredField">*</span>${message("Member.password")}:
-				</th>
-				<td>
-					<input type="password" id="password" name="password" class="text" maxlength="20" />
-				</td>
-			</tr>
-			<tr>
-				<th>
-					<span class="requiredField">*</span>${message("admin.member.rePassword")}:
-				</th>
-				<td>
-					<input type="password" name="rePassword" class="text" maxlength="20" />
-				</td>
-			</tr>
-			<tr>
-				<th>
-					<span class="requiredField">*</span>${message("Member.email")}:
-				</th>
-				<td>
-					<input type="text" name="email" class="text" maxlength="200" />
-				</td>
-			</tr>
-			<tr>
-				<th>
-					<span class="requiredField">*</span>${message("Member.point")}:
-				</th>
-				<td>
-					<input type="text" name="point" class="text" value="${setting.registerPoint}" maxlength="9" />
-				</td>
-			</tr>
-			<tr>
-				<th>
-					<span class="requiredField">*</span>${message("Member.balance")}:
-				</th>
-				<td>
-					<input type="text" name="balance" class="text" value="0" maxlength="16" />
-				</td>
-			</tr>
-			<tr>
-				<th>
-					${message("Member.memberRank")}:
-				</th>
-				<td>
-					<select name="memberRankId">
-						[#list memberRanks as memberRank]
-							<option value="${memberRank.id}"[#if memberRank.isDefault] selected="selected"[/#if]>${memberRank.name}</option>
-						[/#list]
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<th>
-					${message("admin.common.setting")}:
-				</th>
-				<td>
-					<label>
-						<input type="checkbox" name="isEnabled" value="true" checked="checked" />${message("Member.isEnabled")}
-						<input type="hidden" name="_isEnabled" value="false" />
-					</label>
-				</td>
-			</tr>
+			[#--<tr>--]
+				[#--<th>--]
+					[#--<span class="requiredField">*</span>${message("Member.password")}:--]
+				[#--</th>--]
+				[#--<td>--]
+					[#--<input type="password" id="password" name="password" class="text" maxlength="20" />--]
+				[#--</td>--]
+			[#--</tr>--]
+
 		</table>
 
 		<table class="input">

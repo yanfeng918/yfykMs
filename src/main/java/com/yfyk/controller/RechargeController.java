@@ -57,13 +57,13 @@ public class RechargeController {
 
 		Recharge precharge = rechargeService.get(recharge.getId());
 		//审核状态为成功
-		if(precharge.getStatus().equals(RechargeStatus.SUCCESS.getOutername())){
+		if(precharge.getStatus().equals(RechargeStatus.SUCCESS.name())){
 			//再次修改状态依然为成功
 			precharge.setCheckcontent(recharge.getCheckcontent());
 			precharge.setStatus(recharge.getStatus());
 			precharge.setCheckdate(new Date());
 			rechargeService.update(precharge);
-			if(recharge.getStatus().equals(RechargeStatus.SUCCESS.getOutername())){
+			if(recharge.getStatus().equals(RechargeStatus.SUCCESS.name())){
 				return "redirect:list";
 			}
 			//成功修改为不成功，则回滚
@@ -77,7 +77,7 @@ public class RechargeController {
 		rechargeService.update(precharge);
 
 		//审核逻辑： 在审核通过的情况之下，信息的发布者的账户余额增加
-		if(precharge.getStatus().equals(RechargeStatus.SUCCESS.getOutername())){
+		if(precharge.getStatus().equals(RechargeStatus.SUCCESS.name())){
 			Float amount = precharge.getAmount();
 			//账户余额增加
 			memberService.addBalance(amount,precharge.getMemberId());

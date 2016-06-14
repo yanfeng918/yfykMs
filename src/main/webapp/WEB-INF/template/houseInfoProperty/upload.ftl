@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>上传房源11</title>
+<title>上传房源</title>
 
 
 <link href="${base}/resources/admin/css/common.css" rel="stylesheet" type="text/css" />
@@ -80,7 +80,7 @@ function check() {
             </div><br/>
             <div>
                 <input type="file" name="filFile" id="filFile"/><br/>
-                <input type="submit" class="button" value="上传" />
+                <input type="submit" class="button" value="上传" onclick="getResult()"/>
                 <label id="errInfo">${errInfo}</label>
                 <br/>
                 <textarea style="width:600px; height:400px" id="logArea">${log}
