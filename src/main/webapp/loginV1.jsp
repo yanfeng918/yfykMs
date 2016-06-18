@@ -32,36 +32,7 @@ response.sendRedirect(base + "/index/test");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Detail Admin - Sign in</title>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-	<!-- bootstrap -->
-	<link href="<%=base%>/resources/detailAdmin/css/bootstrap/bootstrap.css" rel="stylesheet" />
-	<link href="<%=base%>/resources/detailAdmin/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
-	<link href="<%=base%>/resources/detailAdmin/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
-
-	<!-- global styles -->
-	<link rel="stylesheet" type="text/css" href="<%=base%>/resources/detailAdmin/css/layout.css" />
-	<link rel="stylesheet" type="text/css" href="<%=base%>/resources/detailAdmin/css/elements.css" />
-	<link rel="stylesheet" type="text/css" href="<%=base%>/resources/detailAdmin/css/icons.css" />
-
-	<!-- libraries -->
-	<link rel="stylesheet" type="text/css" href="<%=base%>/resources/detailAdmin/css/lib/font-awesome.css" />
-
-	<!-- this page specific styles -->
-	<link rel="stylesheet" href="<%=base%>/resources/detailAdmin/css/compiled/signin.css" type="text/css" media="screen" />
-
-	<!-- open sans font -->
-	<link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
-
-	<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-
-
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <%
 if (applicationContext != null) {
 	
@@ -93,6 +64,7 @@ if (applicationContext != null) {
 		}
 	}
 %>
+<title>admin.login.title</title>
 <meta http-equiv="expires" content="0" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Cache-Control" content="no-cache" />
@@ -155,7 +127,10 @@ if (applicationContext != null) {
 			var enPassword = hex2b64(rsaKey.encrypt($password.val()));
 			$enPassword.val(enPassword);
 		});
-
+		
+		<%--<%if (message != null) {%>--%>
+			<%--$.message("error", "getAccountLockCount");--%>
+		<%--<%}%>--%>
 	});
 </script>
 <%} else {%>
@@ -165,113 +140,53 @@ if (applicationContext != null) {
 <meta http-equiv="Cache-Control" content="no-cache" />
 
 
-<%--<link href="<%=base%>/resources/admin/css/common.css" rel="stylesheet" type="text/css" />--%>
-<%--<link href="<%=base%>/resources/admin/css/login.css" rel="stylesheet" type="text/css" />--%>
-
-
+<link href="<%=base%>/resources/admin/css/common.css" rel="stylesheet" type="text/css" />
+<link href="<%=base%>/resources/admin/css/login.css" rel="stylesheet" type="text/css" />
 <%}%>
 </head>
 <body>
-
-	<!-- background switcher -->
-	<div class="bg-switch visible-desktop">
-		<div class="bgs">
-			<%--<a href="#" data-img="landscape.jpg" class="bg ">--%>
-				<%--<img src="<%=base%>/resources/detailAdmin/img/bgs/landscape.jpg" />--%>
-			<%--</a>--%>
-			<%--<a href="#" data-img="blueish.jpg" class="bg">--%>
-				<%--<img src="<%=base%>/resources/detailAdmin/img/bgs/blueish.jpg" />--%>
-			<%--</a>--%>
-			<a href="#" data-img="7.jpg" class="bg ">
-				<img src="<%=base%>/resources/detailAdmin/img/bgs/7.jpg" />
-			</a>
-			<a href="#" data-img="8.jpg" class="bg active">
-				<img src="<%=base%>/resources/detailAdmin/img/bgs/8.jpg" />
-			</a>
-			<a href="#" data-img="9.jpg" class="bg">
-				<img src="<%=base%>/resources/detailAdmin/img/bgs/9.jpg" />
-			</a>
-			<a href="#" data-img="10.jpg" class="bg">
-				<img src="<%=base%>/resources/detailAdmin/img/bgs/10.jpg" />
-			</a>
-			<a href="#" data-img="11.jpg" class="bg">
-				<img src="<%=base%>/resources/detailAdmin/img/bgs/11.jpg" />
-			</a>
-		</div>
-	</div>
-
-
 	<%if (applicationContext != null) {%>
-
-		<div>
-			<form id="loginForm" action="login.jsp" method="post">
+		<div class="login">
+			<form id="loginForm" action="loginV1.jsp" method="post">
 				<input type="hidden" id="enPassword" name="enPassword" />
 
-				<div class="row-fluid login-wrapper">
-					<a href="index.html">
-						<img class="logo" src="<%=base%>/resources/detailAdmin/img/logo-white.png" />
-					</a>
+				<table>
+					<tr>
+						<td width="190" rowspan="2" align="center" valign="bottom">
+							<img src="<%=base%>/resources/admin/images/login_logo1.png"  />
+						</td>
+						<th>
+							用户名:
+						</th>
+						<td>
+							<input type="text" id="username" name="username" class="text" maxlength="20" />
+						</td>
+					</tr>
+					<tr>
+						<th>
+							密码:
+						</th>
+						<td>
+							<input type="password" id="password" class="text" maxlength="20" autocomplete="off" />
+						</td>
+					</tr>
 
-					<div class="span4 box">
-						<div class="content-wrap">
-							<h6>Log in</h6>
-							<input class="span12" type="text" placeholder="E-mail address"
-								   id="username" name="username" maxlength="20" />
-
-							<input class="span12" type="password" placeholder="Your password" id="password" maxlength="20"/>
-
-							<a href="#" class="forgot">Forgot password?</a>
-							<div class="remember">
-								<input id="remember-me" type="checkbox" />
-								<label for="remember-me">Remember me</label>
-							</div>
-							<%--<a class="btn-glow primary login" href="index.html">Log in</a>--%>
-							<input type="button" class="homeButton" value="" onclick="location.href='<%=base%>/'" />
-							<input type="submit" class="loginButton" value="login" />
-
-						</div>
-					</div>
-
-					<div class="span4 no-account">
-						<p>Don't have an account?</p>
-						<a href="signup.html">Sign up</a>
-					</div>
-				</div>
+					<tr>
+						<td>
+							&nbsp;
+						</td>
+						<th>
+							&nbsp;
+						</th>
+						<td>
+							<input type="button" class="homeButton" value="" onclick="location.href='<%=base%>/'" /><input type="submit" class="loginButton" value="登录" />
+						</td>
+					</tr>
+				</table>
+				<div class="powered">COPYRIGHT © 2005-2013 ALL RIGHTS RESERVED.</div>
 
 			</form>
 		</div>
-
-
-
 	<%} %>
-
-
-
-
-	<!-- scripts -->
-	<script src="<%=base%>/resources/detailAdmin/js/jquery-latest.js"></script>
-	<script src="<%=base%>/resources/detailAdmin/js/bootstrap.min.js"></script>
-	<script src="<%=base%>/resources/detailAdmin/js/theme.js"></script>
-
-	<!-- pre load bg imgs -->
-	<script type="text/javascript">
-		$(function () {
-
-			$("html").css("background-image", "url('<%=base%>/resources/detailAdmin/img/bgs/7.jpg')");
-			// bg switcher
-			var $btns = $(".bg-switch .bg");
-			$btns.click(function (e) {
-				e.preventDefault();
-				$btns.removeClass("active");
-				$(this).addClass("active");
-				var bg = $(this).data("img");
-
-				$("html").css("background-image", "url('<%=base%>/resources/detailAdmin/img/bgs/" + bg + "')");
-			});
-
-		});
-	</script>
-
-
 </body>
 </html>

@@ -91,7 +91,6 @@ public class AuthenticationRealm extends AuthorizingRealm {
                     adminService.update(admin);
                 }
             }
-            System.out.print(DigestUtils.md5Hex("123123"));
             if (!DigestUtils.md5Hex(password).equals(admin.getPassword())) {
                 int loginFailureCount = admin.getLoginfailurecount() + 1;
                 if (loginFailureCount >= setting.getAccountLockCount()) {

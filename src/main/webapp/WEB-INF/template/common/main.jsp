@@ -108,7 +108,7 @@ $().ready(function() {
 					<strong>[<shiro:principal/>]</strong>
 					您好!
 					<a href="/yjbadmin/admin/changePage" target="iframe">[密码修改]</a>
-					<a href="/yjbadmin/logout" target="_top">[注销]</a>
+					<a href="/yfykms/logout" target="_top">[注销]</a>
 
 				</div>
 			</th>
@@ -154,9 +154,7 @@ $().ready(function() {
 				</dl>
 				<dl id="finance" style="display: none;">
 					<dt>财务管理</dt>
-						<%--<dd>--%>
-							<%--<a href="financeIndex/list" target="iframe">财务首页</a>--%>
-						<%--</dd>--%>
+
 						<dd>
 							<a href="recharge/list" target="iframe">充值管理</a>
 						</dd>
@@ -256,54 +254,14 @@ $().ready(function() {
 					<dd>
 						<a href="auth/statistics/exportReport" target="iframe">导出报表</a>
 					</dd>
-					<%--<dd>--%>
-						<%--<a href="auth/statistics/dayReport" target="iframe">审核统计</a>--%>
-					<%--</dd>--%>
-					<%--<dd>--%>
-						<%--<a href="auth/statistics/dayReport" target="iframe">审核人统计</a>--%>
-					<%--</dd>--%>
-				</dl>
+
 				<dl id="system" style="display: block;">
 					<dt>系统设置</dt>
-						<%--<dd>--%>
-							<%--<a href="setting/edit.jhtml" target="iframe">系统设置</a>--%>
-						<%--</dd>--%>
+
 						<dd>
 							<a href="auth/area/list" target="iframe">地区管理</a>
 						</dd>
-						<%--<dd>--%>
-							<%--<a href="payment_method/list.jhtml" target="iframe">支付方式</a>--%>
-						<%--</dd>--%>
-						<%--<dd>--%>
-							<%--<a href="shipping_method/list.jhtml" target="iframe">配送方式</a>--%>
-						<%--</dd>--%>
-						<%--<dd>--%>
-							<%--<a href="delivery_corp/list.jhtml" target="iframe">物流公司</a>--%>
-						<%--</dd>--%>
-						<%--<dd>--%>
-							<%--<a href="http://localhost:8888/shopxx/admin/payment_plugin/list.jhtml" target="iframe">支付插件</a>--%>
-						<%--</dd>--%>
-						<%--<dd>--%>
-							<%--<a href="http://localhost:8888/shopxx/admin/storage_plugin/list.jhtml" target="iframe">存储插件</a>--%>
-						<%--</dd>--%>
-						<%--<dd>--%>
-							<%--<a href="http://localhost:8888/shopxx/admin/admin/list.jhtml" target="iframe">管理员</a>--%>
-						<%--</dd>--%>
-						<%--<dd>--%>
-							<%--<a href="http://localhost:8888/shopxx/admin/role/list.jhtml" target="iframe">角色管理</a>--%>
-						<%--</dd>--%>
-						<%--<dd>--%>
-							<%--<a href="http://localhost:8888/shopxx/admin/message/send.jhtml" target="iframe">发送消息</a>--%>
-						<%--</dd>--%>
-						<%--<dd>--%>
-							<%--<a href="http://localhost:8888/shopxx/admin/message/list.jhtml" target="iframe">消息列表</a>--%>
-						<%--</dd>--%>
-						<%--<dd>--%>
-							<%--<a href="http://localhost:8888/shopxx/admin/message/draft.jhtml" target="iframe">草稿箱</a>--%>
-						<%--</dd>--%>
-						<%--<dd>--%>
-							<%--<a href="http://localhost:8888/shopxx/admin/log/list.jhtml" target="iframe">日志管理</a>--%>
-						<%--</dd>--%>
+
 				</dl>
 			</td>
 			<td>

@@ -60,7 +60,7 @@ public class HouseInfoPropertyController {
     public String home(Model model, GetHouseInfoPropertyListRequest request) {
         Pager<HouseInfoProperty> list = houseInfoPropertyService.list(request);
         model.addAttribute("pager", list);
-        return "/houseInfoProperty/list";
+        return "/houseInfo/list";
     }
 
 

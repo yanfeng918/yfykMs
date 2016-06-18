@@ -168,21 +168,15 @@ function check() {
 				</th>
 
 				<th>
-					<a href="javascript:;" class="sort" name="name">房源业主姓名</a>
+					<a href="javascript:;" class="sort" name="createdate">创建日期</a>
 				</th>
 
-				<th>
-					<a href="javascript:;" class="sort" name="createDate">创建日期</a>
-				</th>
-                <th>
-                    <a href="javascript:;" class="sort" name="createDate">会员</a>
-                </th>
-				<th>
-					<a href="javascript:;" class="sort" name="">地区</a>
-				</th>
-				<th>
-					<a href="javascript:;" class="sort" name="">地址</a>
-				</th>
+                [#--<a href="javascript:;" class="sort" name="">地区</a>--]
+                [#--</th>--]
+                [#--<th>--]
+                    [#--<a href="javascript:;" class="sort" name="">地址</a>--]
+                [#--</th><th>--]
+
 
 				<th>
 					<span>小区</span>
@@ -202,44 +196,40 @@ function check() {
                 <th>
                     <a href="javascript:;" class="sort" name="mobile">房源业主手机</a>
                 </th>
-				<th>
-					<span>信息的价格</span>
-				</th>
-                <th>
-                    <span>审核备注</span>
-                </th>
+				[#--<th>--]
+					[#--<span>信息的价格</span>--]
+				[#--</th>--]
+                [#--<th>--]
+                    [#--<span>审核备注</span>--]
+                [#--</th>--]
 				<th>
 					<span>信息状态</span>
 				</th>
-                <th>
-                    <span>审核人</span>
-                </th>
-				<th>
-					<span>${message("admin.common.handle")}</span>
-				</th>
+
+				[#--<th>--]
+					[#--<span>${message("admin.common.handle")}</span>--]
+				[#--</th>--]
 			</tr>
 			[#list pager.list as houseInfo]
 				<tr>
 					<td>
 						<input type="checkbox" name="ids" value="${houseInfo.id}" />
 					</td>
+
 					<td>
-						${houseInfo.name}
-					</td>
-					<td>
-						[#if (houseInfo.createDate)??]
-							${(houseInfo.createDate)?string("yyyy-MM-dd HH:mm:ss")}
+						[#if (houseInfo.createdate)??]
+							${(houseInfo.createdate)?string("yyyy-MM-dd HH:mm:ss")}
 						[/#if]
 					</td>
-                    <td>
-						${houseInfo.member.username}
-                    </td>
-					<td>
-						${houseInfo.area.fullName}
-					</td>
-					<td>
-						${houseInfo.address}
-					</td>
+                    [#--<td>--]
+						[#--${houseInfo.member.username}--]
+                    [#--</td>--]
+					[#--<td>--]
+						[#--${houseInfo.area.fullName}--]
+					[#--</td>--]
+					[#--<td>--]
+						[#--${houseInfo.address}--]
+					[#--</td>--]
 					<td>
 						${houseInfo.community}
 					</td>
@@ -247,23 +237,23 @@ function check() {
 						${houseInfo.ban}
                     </td>
                     <td>
-						${houseInfo.roomNumber}
+						${houseInfo.roomnumber}
                     </td>
 					<td>
-						${houseInfo.areaSize}
+						${houseInfo.areasize}
 					</td>
 					<td>
-						${houseInfo.salePrice}
+						${houseInfo.saleprice}
 					</td>
                     <td>
 						${houseInfo.mobile}
                     </td>
-					<td>
-						${houseInfo.infoPrice}
-					</td>
-                    <td>
-						${houseInfo.checkContent}
-                    </td>
+					[#--<td>--]
+						[#--${houseInfo.infoPrice}--]
+					[#--</td>--]
+                    [#--<td>--]
+						[#--${houseInfo.checkContent}--]
+                    [#--</td>--]
 					<td>
                         [#if houseInfo.status=="FAIL"]
                             <span class="red">失败</span>
@@ -285,13 +275,10 @@ function check() {
                             <span class="red">失败-已出售</span>
                         [/#if]
 					</td>
-					<td>
-						${houseInfo.admin.username}
-					</td>
-					<td>
+					[#--<td>--]
 						[#--<a href="view?id=${houseInfo.id}">[${message("admin.common.view")}]</a>--]
-						<a href="edit?id=${houseInfo.id}">[审核]</a>
-					</td>
+						[#--<a href="edit?id=${houseInfo.id}">[审核]</a>--]
+					[#--</td>--]
 				</tr>
 			[/#list]
 		</table>

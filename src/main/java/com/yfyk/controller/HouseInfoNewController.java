@@ -59,7 +59,7 @@ public class HouseInfoNewController {
     public String home(Model model, GetHouseInfoNewListRequest request) {
         Pager<HouseInfoNew> list = houseInfoNewService.list(request);
         model.addAttribute("pager", list);
-        return "/houseInfoNew/list";
+        return "/houseInfo/list";
     }
 
     @RequestMapping(value = "/uploadPage")
