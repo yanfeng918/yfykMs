@@ -133,7 +133,7 @@ $().ready(function() {
 			[#include "/include/pager.ftl"]
 		[#else]
 			<div class="noRecord">
-				没有找到任何记录!
+				没有记录!
 			</div>
 		[/#if]
 	</form>

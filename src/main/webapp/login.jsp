@@ -226,8 +226,10 @@ if (applicationContext != null) {
 								<label for="remember-me">Remember me</label>
 							</div>
 							<%--<a class="btn-glow primary login" href="index.html">Log in</a>--%>
-							<input type="button" class="homeButton" value="" onclick="location.href='<%=base%>/'" />
-							<input type="submit" class="loginButton" value="login" />
+							<%--<input type="button" class="homeButton" value="" onclick="location.href='<%=base%>/'" />--%>
+							<input class="btn-glow primary login" type="submit" class="loginButton" value="login" />
+
+
 
 						</div>
 					</div>
