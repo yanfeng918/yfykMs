@@ -70,77 +70,75 @@ function check() {
 </head>
 <body>
 	<div class="path">
-		<a href="${base}/admin/index/"></a> &raquo; 房源列表 <span>(${pager.totalCount})</span>
+		<a href="${base}/admin/index/"></a> &raquo; 有效房源 <span>(${pager.totalCount})</span>
 	</div>
 	<form id="listForm" action="list" method="get">
 	
 		
 		<div class="bar">
-			<a href="add" class="iconButton">
-				<span class="addIcon">&nbsp;</span>${message("admin.common.add")}
-			</a>
+			[#--<a href="add" class="iconButton">--]
+				[#--<span class="addIcon">&nbsp;</span>${message("admin.common.add")}--]
+			[#--</a>--]
 			<div class="buttonWrap">
-				<a href="javascript:;" id="deleteButton" class="iconButton disabled">
-					<span class="deleteIcon">&nbsp;</span>${message("admin.common.delete")}
-				</a>
-				<a href="javascript:;" id="refreshButton" class="iconButton">
-					<span class="refreshIcon">&nbsp;</span>${message("admin.common.refresh")}
-				</a>
-				
-				<div class="menuWrap">
-					<a href="javascript:;" id="pageSizeSelect" class="button">
-						${message("admin.page.pageSize")}<span class="arrow">&nbsp;</span>
-					</a>
-					<div class="popupMenu">
-						<ul id="pageSizeOption">
-							<li>
-								<a href="javascript:;"[#if pager.pageSize == 10] class="current"[/#if] val="10">10</a>
-							</li>
-							<li>
-								<a href="javascript:;"[#if pager.pageSize == 20] class="current"[/#if] val="20">20</a>
-							</li>
-							<li>
-								<a href="javascript:;"[#if pager.pageSize == 50] class="current"[/#if] val="50">50</a>
-							</li>
-							<li>
-								<a href="javascript:;"[#if pager.pageSize == 100] class="current"[/#if] val="100">100</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				
-				<div class="menuWrap">
-					<a href="javascript:;" id="statusfilter" class="button">
-						筛选条件<span class="arrow">&nbsp;</span>
-					</a>
-					<input type="hidden" name="status" id="status" value="${status}" />
-					<div class="popupMenu">
-						<ul id="filterOption">
-							<li>
-								<a href="javascript:;"[#if status== ''] class="current"[/#if] val="">全部</a>
-							</li>
-							<li>
-								<a href="javascript:;"[#if status== 'APPLY'] class="current"[/#if] val="APPLY">待审核</a>
-							</li>
-                            <li>
-                                <a href="javascript:;"[#if status== 'CHECKING_DISCON1'] class="current"[/#if] val="CHECKING_DISCON1">电话一次未通</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;"[#if status== 'CHECKING_DISCON2'] class="current"[/#if] val="CHECKING_DISCON2">电话两次未通</a>
-                            </li>
-							<li>
-								<a href="javascript:;"[#if status== 'CHECKING'] class="current"[/#if] val="CHECKING">审核中</a>
-							</li>
-							<li>
-								<a href="javascript:;"[#if status == 'SUCCESS'] class="current"[/#if] val="SUCCESS">审核成功</a>
-							</li>
-							<li>
-								<a href="javascript:;"[#if status == 'FAIL'] class="current"[/#if] val="FAIL">审核失败</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				
+				[#--<a href="javascript:;" id="deleteButton" class="iconButton disabled">--]
+					[#--<span class="deleteIcon">&nbsp;</span>${message("admin.common.delete")}--]
+				[#--</a>--]
+				[#--<a href="javascript:;" id="refreshButton" class="iconButton">--]
+					[#--<span class="refreshIcon">&nbsp;</span>${message("admin.common.refresh")}--]
+				[#--</a>--]
+
+				[#--<div class="menuWrap">--]
+					[#--<a href="javascript:;" id="pageSizeSelect" class="button">--]
+						[#--${message("admin.page.pageSize")}<span class="arrow">&nbsp;</span>--]
+					[#--</a>--]
+					[#--<div class="popupMenu">--]
+						[#--<ul id="pageSizeOption">--]
+							[#--<li>--]
+								[#--<a href="javascript:;"[#if pager.pageSize == 10] class="current"[/#if] val="10">10</a>--]
+							[#--</li>--]
+							[#--<li>--]
+								[#--<a href="javascript:;"[#if pager.pageSize == 20] class="current"[/#if] val="20">20</a>--]
+							[#--</li>--]
+							[#--<li>--]
+								[#--<a href="javascript:;"[#if pager.pageSize == 50] class="current"[/#if] val="50">50</a>--]
+							[#--</li>--]
+
+						[#--</ul>--]
+					[#--</div>--]
+				[#--</div>--]
+
+				[#--<div class="menuWrap">--]
+					[#--<a href="javascript:;" id="statusfilter" class="button">--]
+						[#--筛选条件<span class="arrow">&nbsp;</span>--]
+					[#--</a>--]
+					[#--<input type="hidden" name="status" id="status" value="${status}" />--]
+					[#--<div class="popupMenu">--]
+						[#--<ul id="filterOption">--]
+							[#--<li>--]
+								[#--<a href="javascript:;"[#if status== ''] class="current"[/#if] val="">全部</a>--]
+							[#--</li>--]
+							[#--<li>--]
+								[#--<a href="javascript:;"[#if status== 'APPLY'] class="current"[/#if] val="APPLY">待审核</a>--]
+							[#--</li>--]
+                            [#--<li>--]
+                                [#--<a href="javascript:;"[#if status== 'CHECKING_DISCON1'] class="current"[/#if] val="CHECKING_DISCON1">电话一次未通</a>--]
+                            [#--</li>--]
+                            [#--<li>--]
+                                [#--<a href="javascript:;"[#if status== 'CHECKING_DISCON2'] class="current"[/#if] val="CHECKING_DISCON2">电话两次未通</a>--]
+                            [#--</li>--]
+							[#--<li>--]
+								[#--<a href="javascript:;"[#if status== 'CHECKING'] class="current"[/#if] val="CHECKING">审核中</a>--]
+							[#--</li>--]
+							[#--<li>--]
+								[#--<a href="javascript:;"[#if status == 'SUCCESS'] class="current"[/#if] val="SUCCESS">审核成功</a>--]
+							[#--</li>--]
+							[#--<li>--]
+								[#--<a href="javascript:;"[#if status == 'FAIL'] class="current"[/#if] val="FAIL">审核失败</a>--]
+							[#--</li>--]
+						[#--</ul>--]
+					[#--</div>--]
+				[#--</div>--]
+
 			</div>
 				<div style=" margin-left:40%;">
 					<input style="height:28px;" type="text" id="mobile" name="mobile" placeholder="电话" />
