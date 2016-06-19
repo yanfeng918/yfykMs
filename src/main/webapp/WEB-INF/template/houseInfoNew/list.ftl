@@ -94,16 +94,16 @@ function check() {
 					<div class="popupMenu">
 						<ul id="pageSizeOption">
 							<li>
-								<a href="javascript:;"[#if pager.pageSize == 10] class="current"[/#if] val="10">10</a>
+								<a href="javascript:;"[#if pager.pageSize == 10] [/#if] val="10">10</a>
 							</li>
 							<li>
 								<a href="javascript:;"[#if pager.pageSize == 20] class="current"[/#if] val="20">20</a>
 							</li>
 							<li>
-								<a href="javascript:;"[#if pager.pageSize == 50] class="current"[/#if] val="50">50</a>
+								<a href="javascript:;"[#if pager.pageSize == 50] [/#if] val="50">50</a>
 							</li>
 							<li>
-								<a href="javascript:;"[#if pager.pageSize == 100] class="current"[/#if] val="100">100</a>
+								<a href="javascript:;"[#if pager.pageSize == 100] [/#if] val="100">100</a>
 							</li>
 						</ul>
 					</div>
@@ -150,15 +150,15 @@ function check() {
                            treePath="${(area.treePath)!}"/>
 				</div>
 		</div>
-        <div class="demos">
-                <span>起止时间▼<input name="beginDate" type="text" id="beginDate" size="10" maxlength="10"
-                                  value="${beginDate}"
-                                  onClick="new Calendar().show(this);" readonly="readonly"
-                                  style="border:none; width:75px;height:20px; margin:0;"/>		</span>
-                <span>至▼<input name="endDate" type="text" id="endDate" size="10" maxlength="10" value="${endDate}"
-                               onClick="new Calendar().show(this);" readonly="readonly"
-                               style="border:none; width:75px;height:20px; margin:0;"/></span>
-        </div>
+        [#--<div class="demos">--]
+                [#--<span>起止时间▼<input name="beginDate" type="text" id="beginDate" size="10" maxlength="10"--]
+                                  [#--value="${beginDate}"--]
+                                  [#--onClick="new Calendar().show(this);" readonly="readonly"--]
+                                  [#--style="border:none; width:75px;height:20px; margin:0;"/>		</span>--]
+                [#--<span>至▼<input name="endDate" type="text" id="endDate" size="10" maxlength="10" value="${endDate}"--]
+                               [#--onClick="new Calendar().show(this);" readonly="readonly"--]
+                               [#--style="border:none; width:75px;height:20px; margin:0;"/></span>--]
+        [#--</div>--]
         <input type="submit" style="margin-top:-25px" value="搜索">
 		<input type="button" id="exportbut" onclick="exportExcel()" style="margin-top:-25px" value="导出"/>
 		<table id="listTable" class="list">

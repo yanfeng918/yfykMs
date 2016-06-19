@@ -150,17 +150,17 @@ function check() {
                            treePath="${(area.treePath)!}"/>
 				</div>
 		</div>
-        <div class="demos">
-                <span>起止时间▼<input name="beginDate" type="text" id="beginDate" size="10" maxlength="10"
-                                  value="${beginDate}"
-                                  onClick="new Calendar().show(this);" readonly="readonly"
-                                  style="border:none; width:75px;height:20px; margin:0;"/>		</span>
-                <span>至▼<input name="endDate" type="text" id="endDate" size="10" maxlength="10" value="${endDate}"
-                               onClick="new Calendar().show(this);" readonly="readonly"
-                               style="border:none; width:75px;height:20px; margin:0;"/></span>
-        </div>
-        <input type="submit" style="margin-top:-25px" value="搜索">
-		<input type="button" id="exportbut" onclick="exportExcel()" style="margin-top:-25px" value="导出"/>
+        [#--<div class="demos">--]
+                [#--<span>起止时间▼<input name="beginDate" type="text" id="beginDate" size="10" maxlength="10"--]
+                                  [#--value="${beginDate}"--]
+                                  [#--onClick="new Calendar().show(this);" readonly="readonly"--]
+                                  [#--style="border:none; width:75px;height:20px; margin:0;"/>		</span>--]
+                [#--<span>至▼<input name="endDate" type="text" id="endDate" size="10" maxlength="10" value="${endDate}"--]
+                               [#--onClick="new Calendar().show(this);" readonly="readonly"--]
+                               [#--style="border:none; width:75px;height:20px; margin:0;"/></span>--]
+        [#--</div>--]
+        <input type="submit" style="float: right;position: relative;top:-25px;" value="搜索">
+		<input type="button" id="exportbut" onclick="exportExcel()" style="float: right;position: relative;top:-25px;" value="导出"/>
 		<table id="listTable" class="list">
 			<tr>
 				<th class="check">

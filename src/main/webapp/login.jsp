@@ -245,9 +245,6 @@ if (applicationContext != null) {
 
 	<%} %>
 
-
-
-
 	<!-- scripts -->
 	<script src="<%=base%>/resources/detailAdmin/js/jquery-latest.js"></script>
 	<script src="<%=base%>/resources/detailAdmin/js/bootstrap.min.js"></script>
