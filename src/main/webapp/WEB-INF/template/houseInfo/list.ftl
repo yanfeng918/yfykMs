@@ -140,13 +140,13 @@ function check() {
 				[#--</div>--]
 
 			</div>
-				<div style=" margin-left:40%;">
-					<input style="height:28px;" type="text" id="mobile" name="mobile" placeholder="电话" />
-					<input style="height:28px;" type="text" id="memberName" name="memberName" placeholder="会员名" value="${memberName}"/>
-                    <input style="height:28px;" type="text" id="community" name="community" placeholder="小区" value="${community}" />
-                    <input type="hidden" id="areaId" name="areaId" value="${(area.id)!}"
-                           treePath="${(area.treePath)!}"/>
-				</div>
+				[#--<div style=" margin-left:40%;">--]
+					[#--<input style="height:28px;" type="text" id="mobile" name="mobile" placeholder="电话" />--]
+					[#--<input style="height:28px;" type="text" id="memberName" name="memberName" placeholder="会员名" value="${memberName}"/>--]
+                    [#--<input style="height:28px;" type="text" id="community" name="community" placeholder="小区" value="${community}" />--]
+                    [#--<input type="hidden" id="areaId" name="areaId" value="${(area.id)!}"--]
+                           [#--treePath="${(area.treePath)!}"/>--]
+				[#--</div>--]
 		</div>
         [#--<div class="demos">--]
                 [#--<span>起止时间▼<input name="beginDate" type="text" id="beginDate" size="10" maxlength="10"--]
@@ -157,16 +157,16 @@ function check() {
                                [#--onClick="new Calendar().show(this);" readonly="readonly"--]
                                [#--style="border:none; width:75px;height:20px; margin:0;"/></span>--]
         [#--</div>--]
-        <input type="submit" style="float: right;position: relative;top:-25px;" value="搜索">
-		<input type="button" id="exportbut" onclick="exportExcel()" style="float: right;position: relative;top:-25px;" value="导出"/>
+        [#--<input type="submit" style="float: right;position: relative;top:-25px;" value="搜索">--]
+		[#--<input type="button" id="exportbut" onclick="exportExcel()" style="float: right;position: relative;top:-25px;" value="导出"/>--]
 		<table id="listTable" class="list">
 			<tr>
-				<th class="check">
-					<input type="checkbox" id="selectAll" />
-				</th>
+				[#--<th class="check">--]
+					[#--<input type="checkbox" id="selectAll" />--]
+				[#--</th>--]
 
 				<th>
-					<a href="javascript:;" class="sort" name="createdate">创建日期</a>
+					<a href="javascript:;" class="sort" name="createdate">更新日期</a>
 				</th>
 
                 [#--<a href="javascript:;" class="sort" name="">地区</a>--]
@@ -183,7 +183,7 @@ function check() {
                     <span>楼栋</span>
                 </th>
                 <th>
-                    <span>房间号</span>
+                    <span>房号</span>
                 </th>
 				<th>
 					<span>面积</span>
@@ -192,7 +192,7 @@ function check() {
 					<span>价格</span>
 				</th>
                 <th>
-                    <a href="javascript:;" class="sort" name="mobile">房源业主手机</a>
+                    <a href="javascript:;" class="sort" name="mobile">联系方式</a>
                 </th>
 				[#--<th>--]
 					[#--<span>信息的价格</span>--]
@@ -200,9 +200,9 @@ function check() {
                 [#--<th>--]
                     [#--<span>审核备注</span>--]
                 [#--</th>--]
-				<th>
-					<span>信息状态</span>
-				</th>
+				[#--<th>--]
+					[#--<span>信息状态</span>--]
+				[#--</th>--]
 
 				[#--<th>--]
 					[#--<span>${message("admin.common.handle")}</span>--]
@@ -210,9 +210,9 @@ function check() {
 			</tr>
 			[#list pager.list as houseInfo]
 				<tr>
-					<td>
-						<input type="checkbox" name="ids" value="${houseInfo.id}" />
-					</td>
+					[#--<td>--]
+						[#--<input type="checkbox" name="ids" value="${houseInfo.id}" />--]
+					[#--</td>--]
 
 					<td>
 						[#if (houseInfo.createdate)??]
@@ -252,27 +252,27 @@ function check() {
                     [#--<td>--]
 						[#--${houseInfo.checkContent}--]
                     [#--</td>--]
-					<td>
-                        [#if houseInfo.status=="FAIL"]
-                            <span class="red">失败</span>
-                        [#elseif houseInfo.status=="SUCCESS"]
-                            <span class="red"> 成功 </span>
-                        [#elseif houseInfo.status=="APPLY"]
-                            <span class="green">待审核</span>
-                        [#elseif houseInfo.status=="CHECKING"]
-                            <span class="red">审核中</span>
-                        [#elseif houseInfo.status=="FAIL_UNAVAILABLE"]
-                            <span class="red">失败-房源失效</span>
-                        [#elseif houseInfo.status=="CHECKING_DISCON1"]
-                            <span class="green">审核中-未接通1次 </span>
-                        [#elseif houseInfo.status=="CHECKING_DISCON2"]
-                            <span class="green">审核中-未接通2次</span>
-                        [#elseif houseInfo.status=="FAIL_DISCON3"]
-                            <span class="red">多次未接通</span>
-                        [#elseif houseInfo.status=="FAIL_SOLDOUT"]
-                            <span class="red">失败-已出售</span>
-                        [/#if]
-					</td>
+					[#--<td>--]
+                        [#--[#if houseInfo.status=="FAIL"]--]
+                            [#--<span class="red">失败</span>--]
+                        [#--[#elseif houseInfo.status=="SUCCESS"]--]
+                            [#--<span class="red"> 成功 </span>--]
+                        [#--[#elseif houseInfo.status=="APPLY"]--]
+                            [#--<span class="green">待审核</span>--]
+                        [#--[#elseif houseInfo.status=="CHECKING"]--]
+                            [#--<span class="red">审核中</span>--]
+                        [#--[#elseif houseInfo.status=="FAIL_UNAVAILABLE"]--]
+                            [#--<span class="red">失败-房源失效</span>--]
+                        [#--[#elseif houseInfo.status=="CHECKING_DISCON1"]--]
+                            [#--<span class="green">审核中-未接通1次 </span>--]
+                        [#--[#elseif houseInfo.status=="CHECKING_DISCON2"]--]
+                            [#--<span class="green">审核中-未接通2次</span>--]
+                        [#--[#elseif houseInfo.status=="FAIL_DISCON3"]--]
+                            [#--<span class="red">多次未接通</span>--]
+                        [#--[#elseif houseInfo.status=="FAIL_SOLDOUT"]--]
+                            [#--<span class="red">失败-已出售</span>--]
+                        [#--[/#if]--]
+					[#--</td>--]
 					[#--<td>--]
 						[#--<a href="view?id=${houseInfo.id}">[${message("admin.common.view")}]</a>--]
 						[#--<a href="edit?id=${houseInfo.id}">[审核]</a>--]

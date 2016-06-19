@@ -150,20 +150,20 @@ $().ready( function() {
 	});
 	
 	// 选择
-	$ids.click( function() {
-		var $this = $(this);
-		if ($this.prop("checked")) {
-			$this.closest("tr").addClass("selected");
-			$deleteButton.removeClass("disabled");
-		} else {
-			$this.closest("tr").removeClass("selected");
-			if ($("#listTable input[name='ids']:enabled:checked").size() > 0) {
-				$deleteButton.removeClass("disabled");
-			} else {
-				$deleteButton.addClass("disabled");
-			}
-		}
-	});
+	//$ids.click( function() {
+	//	var $this = $(this);
+	//	if ($this.prop("checked")) {
+	//		$this.closest("tr").addClass("selected");
+	//		$deleteButton.removeClass("disabled");
+	//	} else {
+	//		$this.closest("tr").removeClass("selected");
+	//		if ($("#listTable input[name='ids']:enabled:checked").size() > 0) {
+	//			$deleteButton.removeClass("disabled");
+	//		} else {
+	//			$deleteButton.addClass("disabled");
+	//		}
+	//	}
+	//});
 	
 	// 排序
 	$sort.click( function() {

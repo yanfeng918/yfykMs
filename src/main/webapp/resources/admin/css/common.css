@@ -34,7 +34,7 @@ body {
 	font: 12px tahoma, Arial, Verdana, sans-serif;
 	color: #666666;
 	background-color: #ffffff;
-	_background-image: url(about: blank);
+	/*_background-image: url(about: blank);*/
 	_background-attachment: fixed;
 }
 
@@ -1107,7 +1107,7 @@ table.list th {
 	border-top: solid 1px #d8deea;
 	border-right: solid 1px #c6c9ca;
 	border-bottom: solid 1px #c6c9ca;
-	background: url(../images/list.gif) 0px -60px #f2f4f6 no-repeat;
+	/*background: url(../images/list.gif) 0px -60px #f2f4f6 no-repeat;*/
 }
 
 table.list th a, table.list th span {

@@ -316,7 +316,7 @@ public final class RedisUtils {
     public static void main(String[] args) {
         Jedis jedis=getJedis();
         //System.out.println(jedis.llen("xx"));
-        //jedis.lpush("xx","1");
+        jedis.lpush("xx","1");
         //jedis.lpush("ss", "1");
         //jedis.lpush("ss", "2");
         //jedis.lpush("ss", "3");

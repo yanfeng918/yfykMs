@@ -198,12 +198,12 @@
 					<i class="icon-chevron-down"></i>
 				</a>
 				<ul class="submenu">
-					<li>
-						<a href="houseInfoValid/list" target="iframe">有效房源</a>
-					</li>
-					<li>
-						<a href="houseInfoCheckWait/edit" target="iframe">爬虫房源</a>
-					</li>
+					<%--<li>--%>
+						<%--<a href="houseInfoValid/list" target="iframe">有效房源</a>--%>
+					<%--</li>--%>
+					<%--<li>--%>
+						<%--<a href="houseInfoCheckWait/edit" target="iframe">爬虫房源</a>--%>
+					<%--</li>--%>
 					<li>
 						<a href="houseInfoNew/list" target="iframe">最新房源</a>
 					</li>
