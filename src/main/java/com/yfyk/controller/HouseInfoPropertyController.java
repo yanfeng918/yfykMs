@@ -8,6 +8,7 @@ import com.yfyk.entity.HouseInfoProperty;
 import com.yfyk.service.AgentService;
 import com.yfyk.service.CommunityService;
 import com.yfyk.service.HouseInfoPropertyService;
+import com.yfyk.utils.DateUtils;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -78,6 +79,7 @@ public class HouseInfoPropertyController {
      */
     @RequestMapping(value = "/upload.do")
     public String upload(@RequestParam(value = "filFile", required = false) MultipartFile filFile, HttpServletRequest request, ModelMap model) {
+        String beginDate = request.getParameter("beginDate");
 
         if(filFile.isEmpty()){
             model.addAttribute("errInfo", "请选择文件");
@@ -85,9 +87,6 @@ public class HouseInfoPropertyController {
         }
         String path = request.getSession().getServletContext().getRealPath("upload");
         String fileName = filFile.getOriginalFilename();
-        String startIndex=request.getParameter("startIndex");
-        String endIndex=request.getParameter("endIndex");
-        String isChecked=request.getParameter("isChecked");
         //上传文件
         File targetFile = new File("/upload/", fileName);
         if (!targetFile.exists())
@@ -96,7 +95,7 @@ public class HouseInfoPropertyController {
         try {
             filFile.transferTo(targetFile);
             isDone = false;
-            StringBuffer buffer = importUserHouseInfo(targetFile, Long.parseLong(792+""));
+            StringBuffer buffer = importUserHouseInfo(targetFile, Long.parseLong(792+""),DateUtils.parse(beginDate));
             isDone = true;
             model.addAttribute("result",resultBuffer.toString());
             model.addAttribute("log",buffer.toString());
@@ -108,7 +107,7 @@ public class HouseInfoPropertyController {
         return "/houseInfoProperty/upload";
     }
 
-    public StringBuffer importUserHouseInfo(File file, long areaId){
+    public StringBuffer importUserHouseInfo(File file, long areaId,Date createDate){
         try {
             resultBuffer = new StringBuffer();
             buffer = new StringBuffer();
@@ -130,7 +129,7 @@ public class HouseInfoPropertyController {
 					try {
 						if (row != null) {
 							houseInfo = new HouseInfoProperty();
-
+                            houseInfo.setCreatedate(createDate);
 							// mobile 联系号码[6列]
 							HSSFCell cell = row.getCell(5);
 							String mobile="";

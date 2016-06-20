@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>上传房源11</title>
+<title>上传房源</title>
 
 
 <link href="${base}/resources/admin/css/common.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${base}/resources/js/jquery-1.11.1.min.js"></script>
  <script type="text/javascript" src="${base}/resources/admin/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="${base}/resources/js/Calendar.js"></script>
     <script type="text/javascript">
         var isSubmit = false;
         $().ready(function () {
@@ -21,8 +22,8 @@
                     filFile: {
                         required: true
                     },
-                    startIndex: {
-                        required: false
+                    beginDate: {
+                        required: true
                     },
                     endIndex: {
                         required: false
@@ -63,28 +64,22 @@ function check() {
     </script>
 </head>
 <body>
+
+
         <form id="inputForm" action="upload.do" method="post" enctype="multipart/form-data">
             <div>
-                [#--<select name="cityId" id="cityId">--]
-                    [#--<option value="">----请选择城市----</option>--]
-                [#--[#list cityList as city]--]
-                [#--${city.name}--]
-                    [#--<option value="${city.id}" [#if cityId?? &&cityId==city.id]selected="selected"[/#if]>--]
-                    [#--${city.name}--]
-                    [#--</option>--]
-                [#--[/#list]--]
-                [#--</select>--]
-                [#--<br/>--]
-                [#--<label>开始行</label><input type="text" name="startIndex" id="startIndex"/><br/>--]
-                [#--<label>结束行</label><input type="text" name="endIndex" id="endIndex"/><br/>--]
+                <div class="demos">
+                    <span>房源获取日期</span>
+                    <input name="beginDate" type="text" id="beginDate" size="10" maxlength="10" value="${beginDate}"
+                           onClick="new Calendar().show(this);" readonly="readonly" style="border:solid; width:150px;height:20px; margin:0;"/>
+                </div>
             </div><br/>
             <div>
                 <input type="file" name="filFile" id="filFile"/><br/>
-                <input type="submit" class="button" value="上传" />
+                <input type="submit" class="button" value="上传" onclick="getResult()"/>
                 <label id="errInfo">${errInfo}</label>
                 <br/>
-                <textarea style="width:600px; height:400px" id="logArea">${log}
-                </textarea>
+                <textarea style="width:600px; height:400px" id="logArea">${log}</textarea>
             </div>
 		</form>
         <label id="resultId">${result}</label>
