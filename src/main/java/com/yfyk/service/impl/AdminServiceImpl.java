@@ -28,6 +28,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<String> findAuthorities(long id) {
+
+
         return null;
     }
 

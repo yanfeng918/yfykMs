@@ -5,7 +5,7 @@
     <sql id="whereOfGetHouseInfoList">
         <where>
             <if test="community!= null and community!=''">
-                and h.community like CONCAT('%',#{community},'%')
+                 h.community like CONCAT('%',#{community},'%')
             </if>
             <if test="mobile!= null and mobile!=''">
                 and h.mobile =#{mobile}
