@@ -26,7 +26,7 @@ public class HouseInfoPropertyServiceImpl implements HouseInfoPropertyService {
             return false;
         }
         HouseInfoPropertyExample houseInfoPropertyExample = new HouseInfoPropertyExample();
-        houseInfoPropertyExample.or().andMobileEqualTo(mobile).andBanEqualTo(ban).andRoomnumberEqualTo(roomNumber);
+        houseInfoPropertyExample.or().andMobileEqualTo(mobile).andBanEqualTo(ban);
         List<HouseInfoProperty> houseInfoProperties = houseInfoPropertyExtendMapper.selectByExample(houseInfoPropertyExample);
         if (houseInfoProperties==null||houseInfoProperties.size()==0)
             return false;

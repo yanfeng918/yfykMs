@@ -14,7 +14,7 @@
         </commentGenerator>
         <!--数据库链接地址账号密码-->
         <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost/yfyk" userId="root" password="root"></jdbcConnection>-->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://139.196.13.240/yfyk" userId="yanfeng" password="yanfeng"></jdbcConnection>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://139.196.13.240:3306/yfyk" userId="yanfeng" password="yanfeng"></jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
@@ -25,7 +25,7 @@
         </javaModelGenerator>
         <!--生成映射文件存放位置-->
         <sqlMapGenerator targetPackage="mybatis.mbg" targetProject="src/main/resources">
-            <property name="enableSubPackages" value="true"/>
+            <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
         <!--生成Dao类存放位置-->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.yfyk.dao.mbg" targetProject="src/main/java">
@@ -73,7 +73,7 @@
         <!--<table tableName="t_withdraw" domainObjectName="WithDraw">-->
         <!--</table> -->
 
-        <table tableName="t_member" domainObjectName="Member">
+        <table tableName="t_house_info_property" domainObjectName="HouseInfoProperty">
             <property name="useActualColumnNames" value="true"/>
         </table>
 

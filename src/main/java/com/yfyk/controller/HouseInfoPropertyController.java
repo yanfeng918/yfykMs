@@ -129,7 +129,7 @@ public class HouseInfoPropertyController {
 					try {
 						if (row != null) {
 							houseInfo = new HouseInfoProperty();
-                            houseInfo.setCreatedate(createDate);
+                            houseInfo.setCreateDate(createDate);
 							// mobile 联系号码[6列]
 							HSSFCell cell = row.getCell(5);
 							String mobile="";
@@ -140,7 +140,6 @@ public class HouseInfoPropertyController {
 									if (value.indexOf(" ")!=-1) {
 										houseInfo.setMobile(value.split(" ")[0]);
 										mobile=value.split(" ")[0];
-										houseInfo.setDescription(value);
 									}else {
 										houseInfo.setMobile(value);
 										mobile=value;
@@ -171,15 +170,15 @@ public class HouseInfoPropertyController {
                             if (row.getCell(2)!=null) {
                                 row.getCell(2).setCellType(Cell.CELL_TYPE_STRING);
                                 if (!row.getCell(2).getStringCellValue().trim().equals("")) {
-                                    houseInfo.setRoomnumber(row.getCell(2).getStringCellValue().trim());
+                                    houseInfo.setRoomNumber(row.getCell(2).getStringCellValue().trim());
                                 }else {
-                                    houseInfo.setRoomnumber("");
+                                    houseInfo.setRoomNumber("");
                                 }
                             }else {
-                                houseInfo.setRoomnumber("");
+                                houseInfo.setRoomNumber("");
                             }
                             //判断是否重复
-							if (houseInfoPropertyService.isHouseExist(houseInfo.getMobile(),houseInfo.getBan(),houseInfo.getRoomnumber())) {
+							if (houseInfoPropertyService.isHouseExist(houseInfo.getMobile(),houseInfo.getBan(),houseInfo.getRoomNumber())) {
 								buffer.append("*********第"+index+"行取消导入:重复\n");
 								localExistCount++;
 								continue;
@@ -189,26 +188,9 @@ public class HouseInfoPropertyController {
 								row.getCell(0).setCellType(Cell.CELL_TYPE_STRING);
 								houseInfo.setCommunity(row.getCell(0).getStringCellValue().trim());
 							}
-							//5--> areaSize 面积[4列]
-							if (row.getCell(3)!=null&&!row.getCell(3).toString().trim().isEmpty()) {
-								row.getCell(3).setCellType(Cell.CELL_TYPE_STRING);
-								houseInfo.setAreasize(Float.parseFloat((row.getCell(3).getStringCellValue().trim())));
-							}else {
-								houseInfo.setAreasize(0f);
-							}
-							//`salePrice`售价[5列]
-							if (row.getCell(4)!=null) {
-								row.getCell(4).setCellType(Cell.CELL_TYPE_STRING);
-								if (!row.getCell(4).getStringCellValue().trim().isEmpty()) {
-									houseInfo.setSaleprice(Float.parseFloat(row.getCell(4).getStringCellValue().trim()));
-								}else {
-									houseInfo.setSaleprice(0f);
-								}
-							}
-//							houseInfo.setStatus(HouseInfo_STATUS.APPLY);
-							houseInfo.setHouseshape("零室零厅");
+
 							houseInfo.setAreaId((int)areaId);
-							houseInfo.setCreatedate(new Date());
+							houseInfo.setCreateDate(new Date());
                             //处理小区名称
                             Community community = communityService.findByName(houseInfo.getCommunity());
                             if (community!=null){
