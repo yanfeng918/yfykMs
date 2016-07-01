@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!--数据库驱动-->
-    <classPathEntry location="/Users/mac/repo/mysql/mysql-connector-java/5.1.33/mysql-connector-java-5.1.33.jar"/>
-    <!--<classPathEntry location="D:\m2\repositoryMyself\mysql\mysql-connector-java\5.1.25\mysql-connector-java-5.1.25.jar"/>-->
+    <!--<classPathEntry location="/Users/mac/repo/mysql/mysql-connector-java/5.1.33/mysql-connector-java-5.1.33.jar"/>-->
+    <classPathEntry location="D:\m2\repositoryMyself\mysql\mysql-connector-java\5.1.25\mysql-connector-java-5.1.25.jar"/>
 
     <context id="DB2Tables" targetRuntime="MyBatis3" defaultModelType="flat">
         <commentGenerator>
@@ -74,6 +74,7 @@
         <!--</table> -->
 
         <table tableName="t_member" domainObjectName="Member">
+            <property name="useActualColumnNames" value="true"/>
         </table>
 
     </context>
