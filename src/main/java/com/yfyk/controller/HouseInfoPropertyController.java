@@ -80,7 +80,7 @@ public class HouseInfoPropertyController {
 
     @RequestMapping(value = "/uploadPage")
     public String uploadPage(ModelMap model){
-        return "/houseInfoProperty/upload";
+        return "/houseInfo/upload";
     }
 
     /**
