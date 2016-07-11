@@ -16,11 +16,7 @@
 <script type="text/javascript" src="${base}/resources/admin/js/common.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/input.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/datePicker/WdatePicker.js"></script>
-<script type="text/javascript">
-$().ready(function() {
 
-})
-</script>
 </head>
 <body>
 
