@@ -3,6 +3,7 @@ package com.yfyk.controller;
 import com.yfyk.bean.Pager;
 import com.yfyk.dto.request.finance.GetRechargeListRequest;
 import com.yfyk.dto.response.GetRechargeListResponse;
+import com.yfyk.entity.HouseInfoNew;
 import com.yfyk.entity.Recharge;
 import com.yfyk.enums.RechargeStatus;
 import com.yfyk.service.MemberService;
@@ -14,8 +15,10 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping(value="recharge")
@@ -29,9 +32,19 @@ public class RechargeController {
 
 	@RequestMapping(value="/list")
 	public String list(Model model, GetRechargeListRequest request) {
-		Pager<GetRechargeListResponse> list = rechargeService.list(request);
-		model.addAttribute("pager",list);
+//		Pager<GetRechargeListResponse> list = rechargeService.list(request);
+//		model.addAttribute("pager",list);
 		return "recharge/list";
+	}
+
+	@RequestMapping(value="/getList")
+	@ResponseBody
+	public Pager<GetRechargeListResponse> getList(GetRechargeListRequest request) {
+		Pager<GetRechargeListResponse> pager = rechargeService.list(request);
+		List<GetRechargeListResponse> list = pager.getList();
+		GetRechargeListResponse[] data = list.toArray(new GetRechargeListResponse[list.size()]);
+		pager.setData(data);
+		return pager;
 	}
 
 	/**

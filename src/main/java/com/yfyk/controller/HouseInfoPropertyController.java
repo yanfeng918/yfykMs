@@ -2,8 +2,11 @@ package com.yfyk.controller;
 
 
 import com.yfyk.bean.Pager;
+import com.yfyk.dto.request.GetHouseInfoNewListRequest;
 import com.yfyk.dto.request.GetHouseInfoPropertyListRequest;
+import com.yfyk.dto.request.GetHouseInfoValidListRequest;
 import com.yfyk.entity.Community;
+import com.yfyk.entity.HouseInfoNew;
 import com.yfyk.entity.HouseInfoProperty;
 import com.yfyk.service.AgentService;
 import com.yfyk.service.CommunityService;
@@ -30,6 +33,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -56,12 +60,21 @@ public class HouseInfoPropertyController {
     public static boolean isDone;
 
 
-
     @RequestMapping(value="/list")
-    public String home(Model model, GetHouseInfoPropertyListRequest request) {
-        Pager<HouseInfoProperty> list = houseInfoPropertyService.list(request);
-        model.addAttribute("pager", list);
+    public String home(Model model, GetHouseInfoValidListRequest request) {
+        model.addAttribute("type", "property");
         return "/houseInfo/list";
+    }
+
+
+    @RequestMapping(value="/getList")
+    @ResponseBody
+    public Pager<HouseInfoProperty> getList(Model model, GetHouseInfoPropertyListRequest request) {
+        Pager<HouseInfoProperty> pager = houseInfoPropertyService.list(request);
+        List<HouseInfoProperty> list = pager.getList();
+        HouseInfoProperty[] data = list.toArray(new HouseInfoProperty[list.size()]);
+        pager.setData(data);
+        return pager;
     }
 
 

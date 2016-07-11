@@ -13,7 +13,7 @@
     </sql>
 
     <select id="getHouseInfoList" parameterType="com.yfyk.dto.request.GetHouseInfoNewListRequest"
-            resultType="com.yfyk.entity.HouseInfoProperty">
+            resultType="com.yfyk.entity.HouseInfoNew">
         select
         h.id,h.createDate,h.infoPrice,h.area_id,h.roomNumber, h.community,h.address,h.description,h.areaSize,h.salePrice,
         h.ban,h.houseShape,h.name,h.mobile,h.status,h.available, a.fullName area_fullName
@@ -21,13 +21,13 @@
         a on h.area_id = a.id
         <include refid="whereOfGetHouseInfoList" />
         <if test="sort!=null">
-            order by h.status DESC,h.available DESC ,h.${sort}
+            order by h.${sort}
             <if test="order!=null">
                 ${order}
             </if>
         </if>
         <if test="sort==null">
-            order by h.status DESC,h.available DESC , h.createDate DESC
+            order by  h.id DESC
         </if>
         <if test="pageOffset >= 0 and pageSize>0">
             limit #{pageOffset} , #{pageSize}

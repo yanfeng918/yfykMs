@@ -15,7 +15,7 @@ public class BasePagerRequestDto {
     public static final Integer MAX_PAGE_SIZE = 500;// 每页最大记录数限制
 
     private Integer pageNumber = 1;// 当前页码
-    private Integer pageOffset = 1;//
+    private Integer pageOffset = 0;//
     private Integer pageSize = 20;// 每页记录数
 
     private String property;// 查找属性名称
@@ -25,8 +25,10 @@ public class BasePagerRequestDto {
 
 
     public void webParamConvert() {
-        if (pageSize != null && pageNumber != null) {
-            pageOffset = pageSize * (pageNumber - 1);
+        if (pageOffset==0){
+            if (pageSize != null && pageNumber != null) {
+                pageOffset = pageSize * (pageNumber - 1);
+            }
         }
     }
 

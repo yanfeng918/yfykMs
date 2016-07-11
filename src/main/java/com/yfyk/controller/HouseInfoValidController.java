@@ -33,6 +33,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -62,9 +63,19 @@ public class HouseInfoValidController {
 
 	@RequestMapping(value="/list")
 	public String home(Model model, GetHouseInfoValidListRequest request) {
-		Pager<HouseInfoValid> list = houseInfoValidService.list(request);
-		model.addAttribute("pager", list);
+		model.addAttribute("type", "valid");
 		return "/houseInfo/list";
+	}
+
+
+	@RequestMapping(value="/getList")
+	@ResponseBody
+	public Pager<HouseInfoValid> getList(Model model, GetHouseInfoValidListRequest request) {
+		Pager<HouseInfoValid> pager = houseInfoValidService.list(request);
+		List<HouseInfoValid> list = pager.getList();
+		HouseInfoValid[] data = list.toArray(new HouseInfoValid[list.size()]);
+		pager.setData(data);
+		return pager;
 	}
 
 

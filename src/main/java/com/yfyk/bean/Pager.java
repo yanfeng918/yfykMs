@@ -36,7 +36,7 @@ public class Pager<T> {
 	private OrderType orderType = OrderType.desc;// 排序方式
 	private List<T> list;// 数据List
 
-
+	private T[] data;// 数据List
 
 
 	public void webParamConvert() {
@@ -137,7 +137,14 @@ public class Pager<T> {
 	public void setList(List<T> list) {
 		this.list = list;
 	}
-	
+
+	public T[] getData() {
+		return data;
+	}
+	public void setData(T[] data) {
+		this.data = data;
+	}
+
 	@Override
 	public String toString() {
 		return "Pager [pageNumber=" + pageNumber + ", pageOffset=" + pageOffset

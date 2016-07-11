@@ -3,9 +3,11 @@ package com.yfyk.controller;
 
 import com.yfyk.bean.Pager;
 import com.yfyk.dto.request.GetHouseInfoNewListRequest;
+import com.yfyk.dto.request.GetHouseInfoValidListRequest;
 import com.yfyk.entity.Community;
 import com.yfyk.entity.HouseInfoNew;
 import com.yfyk.entity.HouseInfoProperty;
+import com.yfyk.entity.HouseInfoValid;
 import com.yfyk.service.AgentService;
 import com.yfyk.service.CommunityService;
 import com.yfyk.service.HouseInfoNewService;
@@ -32,6 +34,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -57,10 +60,20 @@ public class HouseInfoNewController {
     public static boolean isDone;
 
     @RequestMapping(value="/list")
-    public String home(Model model, GetHouseInfoNewListRequest request) {
-        Pager<HouseInfoNew> list = houseInfoNewService.list(request);
-        model.addAttribute("pager", list);
+    public String home(Model model, GetHouseInfoValidListRequest request) {
+        model.addAttribute("type", "new");
         return "/houseInfo/list";
+    }
+
+
+    @RequestMapping(value="/getList")
+    @ResponseBody
+    public Pager<HouseInfoNew> getList(Model model, GetHouseInfoNewListRequest request) {
+        Pager<HouseInfoNew> pager = houseInfoNewService.list(request);
+        List<HouseInfoNew> list = pager.getList();
+        HouseInfoNew[] data = list.toArray(new HouseInfoNew[list.size()]);
+        pager.setData(data);
+        return pager;
     }
 
     @RequestMapping(value = "/uploadPage")

@@ -202,7 +202,7 @@
 						<a href="houseInfoValid/list" target="iframe">有效房源</a>
 					</li>
 					<li>
-						<a href="houseInfoValid/uploadPage" target="iframe">最新房源导入</a>
+						<a href="houseInfoValid/uploadPage" target="iframe">有效房源导入</a>
 					</li>
 					<%--<li>--%>
 						<%--<a href="houseInfoCheckWait/edit" target="iframe">爬虫房源</a>--%>

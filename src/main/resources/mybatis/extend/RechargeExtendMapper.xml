@@ -19,7 +19,8 @@
 
     <select id="getRechargeList" parameterType="com.yfyk.dto.request.finance.GetRechargeListRequest"
             resultType="com.yfyk.dto.response.GetRechargeListResponse">
-        select h.id, h.createDate,h.amount,h.status,h.checkContent,m.userName,m.mobile,m.zhifubaoAccount,m.balance from t_recharge h LEFT  JOIN  t_member m ON h.member_id= m.id
+        select h.id, h.createDate,h.amount,h.status,h.checkContent,m.userName,m.mobile,m.zhifubaoAccount,m.balance
+        from t_recharge h LEFT  JOIN  t_member m ON h.member_id= m.id
         <include refid="whereOfGetRechargeList" />
         <if test="sort!=null">
             order by h.${sort}
@@ -28,7 +29,7 @@
             </if>
         </if>
         <if test="sort==null">
-            order by h.createDate DESC
+            order by h.id DESC
         </if>
         <if test="pageOffset >= 0 and pageSize>0">
             limit #{pageOffset} , #{pageSize}
