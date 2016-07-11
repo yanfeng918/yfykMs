@@ -5,8 +5,11 @@
 <title>编辑</title>
 
 
-<link href="${base}/resources/admin/css/common.css" rel="stylesheet" type="text/css" />
+[#--<link href="${base}/resources/admin/css/common.css" rel="stylesheet" type="text/css" />--]
+<link href="${base}/resources/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
 <script type="text/javascript" src="${base}/resources/admin/js/jquery.js"></script>
+<script type="text/javascript" src="${base}/resources/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/jquery.tools.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/jquery.lSelect.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/jquery.validate.js"></script>
@@ -20,28 +23,14 @@ $().ready(function() {
 </script>
 </head>
 <body>
-	<div class="path">
-		<a href="${base}/index">${message("admin.path.index")}</a> &raquo; 编辑
-	</div>
+
 	<form id="inputForm" action="update" method="post">
 		<input type="hidden" name="id" value="${recharge.id}" />
-		<ul id="tab" class="tab">
-			<li>
-				<input type="button" value="${message("admin.member.base")}" />
-			</li>
-			<li>
-				<input type="button" value="${message("admin.member.point")}" />
-			</li>
-			<li>
-				<input type="button" value="${message("admin.member.deposit")}" />
-			</li>
-		</ul>
 
-
-		<table class="input tabContent">
+		<table class="table table-striped table-bordered table-hover">
 			<tr style="color:red;">
 				<th >
-					微信账号:
+					账号:
 				</th>
 				<td>
 					${recharge.rechargeNumber}
@@ -121,8 +110,8 @@ $().ready(function() {
 					&nbsp;
 				</th>
 				<td>
-					<input type="submit" class="button" value="${message("admin.common.submit")}" />
-					<input type="button" class="button" value="${message("admin.common.back")}" onclick="location.href='list'" />
+					<input type="submit" class="btn btn-primary" value="${message("admin.common.submit")}" />
+					<input type="button" class="btn btn-info" value="${message("admin.common.back")}" onclick="location.href='list'" />
 				</td>
 			</tr>
 		</table>
