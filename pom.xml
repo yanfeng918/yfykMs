@@ -279,7 +279,7 @@
           <!-- http://121.40.162.48/ -->
           <!-- http://139.196.13.240:8080/ -->
           <!--<url>http://121.40.162.48/manager/text</url>-->
-          <url>http://139.196.13.240:32981/manager/text</url>
+          <url>http://139.196.6.9:32981/manager/text</url>
           <server>tomcat</server>
           <path>/yfykMs</path>
           <username>admin</username>

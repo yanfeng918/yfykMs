@@ -190,7 +190,6 @@ public class HouseInfoPropertyController {
 							}
 
 							houseInfo.setAreaId((int)areaId);
-							houseInfo.setCreateDate(new Date());
                             //处理小区名称
                             Community community = communityService.findByName(houseInfo.getCommunity());
                             if (community!=null){

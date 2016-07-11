@@ -255,7 +255,7 @@ public final class RedisUtils {
 
     /**
      * 添加list
-     * @param args
+     * @param
      */
     public static void setList(String key,String value){
         Jedis jedis = null;
@@ -294,7 +294,7 @@ public final class RedisUtils {
 
     /**
      * 返回并删除尾元素
-     * @param args
+     * @param
      */
     public static String getElement(String key){
         Jedis jedis = null;
