@@ -4,7 +4,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>上传房源</title>
 
-
+    <link href="${base}/resources/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="${base}/resources/admin/css/common.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${base}/resources/js/jquery-1.11.1.min.js"></script>
  <script type="text/javascript" src="${base}/resources/admin/js/jquery.validate.js"></script>
@@ -76,10 +76,10 @@ function check() {
             </div><br/>
             <div>
                 <input type="file" name="filFile" id="filFile"/><br/>
-                <input type="submit" class="button" value="上传" onclick="getResult()"/>
+                <input type="submit" class="btn btn-primary" value="上传" onclick="getResult()"/>
                 <label id="errInfo">${errInfo}</label>
                 <br/>
-                <textarea style="width:600px; height:400px" id="logArea">${log}</textarea>
+                <textarea style="height: 300px;" class="form-control" rows="3" id="logArea">${log}</textarea>
             </div>
 		</form>
         <label id="resultId">${result}</label>
