@@ -58,10 +58,8 @@ var createDateTables = function () {
                 "render" : function(data,type, row, meta) {
                     if(data=="FAIL"){
                         return '<span class="red">失败</span>';
-                    }else if(data=="FAIL"){
-                        return '<span class="red"> 成功 </span>';
                     }else if(data=="SUCCESS"){
-                        return "失败";
+                        return '<span class="red"> 成功 </span>';
                     }else if(data=="APPLY"){
                         return '<span class="green">待审核</span>';
                     }else{
