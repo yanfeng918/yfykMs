@@ -59,9 +59,9 @@ var createDateTables = function () {
                     if(data=="FAIL"){
                         return '<span class="red">失败</span>';
                     }else if(data=="SUCCESS"){
-                        return '<span class="red"> 成功 </span>';
+                        return '<span class="green"> 成功 </span>';
                     }else if(data=="APPLY"){
-                        return '<span class="green">待审核</span>';
+                        return '<span>待审核</span>';
                     }else{
                         return '<span class="green">审核中</span>';
                     }
