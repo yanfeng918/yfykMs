@@ -57,8 +57,6 @@ function check() {
             if(psconsole.length)
                 psconsole.scrollTop(psconsole[0].scrollHeight - psconsole.height());
         	}
-        
-  
     });
 }
     </script>
