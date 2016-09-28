@@ -12,7 +12,7 @@ public final class RedisUtils {
 
     //Redis服务器IP
 //    private static String ADDR = "10.12.34.37";
-    private static String ADDR = "139.196.13.240";
+    private static String ADDR = "114.215.252.82";
 
     //Redis的端口号
     private static int PORT = 6379;

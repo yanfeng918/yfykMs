@@ -41,9 +41,9 @@
         from t_house_info_valid h LEFT JOIN t_area
         a on h.area_id = a.id
         <include refid="whereOfGetHouseInfoList" />
-        <if test="sort!=null">
-            order by h.status DESC,h.available DESC ,h.${sort}
-            <if test="order!=null">
+        <if test="sort!=null and sort!=''">
+            order by h.${sort}
+            <if test="order!=null and order!=''">
                 ${order}
             </if>
         </if>

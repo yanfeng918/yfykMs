@@ -21,7 +21,7 @@ public class BasePagerRequestDto {
     private String property;// 查找属性名称
     private String keyword;// 查找关键字
     private String sort = "createDate";// 排序字段
-    private OrderType order = OrderType.desc;// 排序方式
+    private String order = "desc";// 排序方式
 
 
     public void webParamConvert() {
@@ -63,12 +63,29 @@ public class BasePagerRequestDto {
         this.sort = sort;
     }
 
-    public OrderType getOrder() {
+
+    public String getOrder() {
         return order;
     }
 
-    public void setOrder(OrderType order) {
+    public void setOrder(String order) {
         this.order = order;
+    }
+
+    public String getProperty() {
+        return property;
+    }
+
+    public void setProperty(String property) {
+        this.property = property;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
     }
 
     public void setPageSize(Integer pageSize) {

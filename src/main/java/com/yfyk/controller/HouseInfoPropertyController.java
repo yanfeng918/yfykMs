@@ -202,11 +202,11 @@ public class HouseInfoPropertyController {
 								houseInfo.setCommunity(row.getCell(0).getStringCellValue().trim());
 							}
 
-							houseInfo.setAreaId((int)areaId);
+//							houseInfo.setAreaId((int)areaId);
                             //处理小区名称
                             Community community = communityService.findByName(houseInfo.getCommunity());
                             if (community!=null){
-                                houseInfo.setAreaId(community.getAreaId());
+//                                houseInfo.setAreaId(community.getAreaId());
                             }
                             houseInfoPropertyService.add(houseInfo);
 							buffer.append("*********第"+index+"行导入成功***************\n");

@@ -20,13 +20,13 @@
         from t_house_info_new h LEFT JOIN t_area
         a on h.area_id = a.id
         <include refid="whereOfGetHouseInfoList" />
-        <if test="sort!=null">
+        <if test="sort!=null and sort!=''">
             order by h.${sort}
             <if test="order!=null">
                 ${order}
             </if>
         </if>
-        <if test="sort==null">
+        <if test="sort==null or sort==''">
             order by  h.id DESC
         </if>
         <if test="pageOffset >= 0 and pageSize>0">
